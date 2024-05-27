@@ -28,7 +28,6 @@ public class LottoExam {
 		rand = Math.random();
 		number = (int) (rand * 45) + 1;
 		System.out.println(number);
-		System.out.println();
 	}
 
 }
