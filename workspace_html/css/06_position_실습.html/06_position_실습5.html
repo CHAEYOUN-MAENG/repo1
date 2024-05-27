@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습5</title>
+    <style>
+        /* inline block을 적용시 띄어쓰기 때문에 넘어가지 않아서 font-size를 0으로 주고 자식에게 다시 기본 16px를 주면 적용됨 */
+        .wrap{
+            /* border: 1px solid red; */
+            width: 90%;
+            margin: 0 auto;
+            font-size: 0;
+            /* background-color: bisque; */
+            /* background-size: 200px; */
+            /* 배경색은 사이즈조절 안됨 */
+        }
+        .wrap .section{
+            /* border: 1px solid blue; */
+            display: inline-block;
+            font-size: 16px;
+            box-sizing: border-box;
+            width: 50%;
+            vertical-align: top;
+        }
+        .wrap .section img{
+            width: 100%;
+        }
+        .wrap .section .half{
+            width: 50%;
+            display: inline-block;
+            /* 그래야 text-align이 적용됨  */
+        }
+        .wrap .section.left{
+            text-align: right;
+        }
+        .wrap .section .text{
+            background-color: beige;
+            color: brown;
+            font-size: 40px;
+            padding: 40px 30px;
+        }
+        .wrap .section > div{
+            margin: 10px;
+        }
+        .band{
+            background-color: bisque;
+            width: 20%;
+            height: 800px;
+            position: absolute;
+            top: 0;
+            left: 550px;
+            z-index: -999;
+        }
+        .left{
+            position: relative;
+            top: 10%;
+            left: 3%;
+        }
+        .section{
+            position: relative;
+            top: 15%;
+            left: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- 왼쪽 -->
+        <div class="section left">
+            <div>
+                <img src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/4583c5e5778759d5bf354095/dfggdf-min.jpg">
+            </div>
+            <div class="half">
+                <img src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/ea6de3a355c35c3fb5e2e8fb/gfgg.jpg">
+            </div>
+        </div>
+        <!-- 오른쪽 -->
+        <div class="section">
+            <div class="half">
+                <img src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/ea6de3a355c35c3fb5e2e8fb/gfgg.jpg">
+            </div>
+            <div class="text">
+                We believe a community of diversity and acceptance starts in a safe and inclusive place of worship.
+            </div>
+        </div>
+    </div>
+    <div class="band"></div>
+</body>
+</html>

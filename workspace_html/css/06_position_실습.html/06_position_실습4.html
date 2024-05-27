@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습4</title>
+    <style>
+        /* inline을 사용하려면 원래 했던대로 해야함 */
+        .class1{
+            /* border: 1px solid red; */
+            position: absolute;
+            top: 80px;
+            left: 70px;
+            display: inline-block;
+        }
+        .img1{
+            height: 400px;
+            width: 600px;
+        }
+        .img2{
+            height: 200px;
+            width: 200px;
+            margin-left: 400px;
+            margin-top: 20px;
+        }
+        .img3{
+            height: 200px ;
+            width: 200px;
+            position: absolute;
+            top: 130px;
+            left: 700px;
+            /* border: 1px solid red; */
+        }
+        .class4{
+            /* margin-top: 30px; */
+            /* border: 1px solid black; */
+            width: 370px;
+            height: 340px;
+            padding: 30px 40px;
+            position: absolute;
+            top: 350px ;
+            left: 700px;
+            background-color: beige;
+        }
+        .font1{
+            /* border: 1px solid blue; */
+            padding-top: 25px;
+            font-size: 35px;
+            font-weight: 500;
+        }
+        .font2{
+            padding-top: 15px;
+            font-size: medium;
+        }
+        .img4{
+            height: 790px;
+            width: 330px;
+            background-color: bisque;
+            position: absolute;
+            top: 0;
+            left: 510px;
+            z-index: -999;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="class1">
+        <img class="img1" src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/4583c5e5778759d5bf354095/dfggdf-min.jpg"><br>
+        <img class="img2" src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/ea6de3a355c35c3fb5e2e8fb/gfgg.jpg">
+    </div>
+    <div>
+        <img class="img3" src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/ea6de3a355c35c3fb5e2e8fb/gfgg.jpg">
+            <div class="class4">
+                <div class="font1">
+                    We believe a community of diversity and acceptance starts in a safe and inclusive place of worship.
+                </div>
+                <div class="font2">
+                    Images from Freepik
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="img4"></div>
+</body>
+</html>

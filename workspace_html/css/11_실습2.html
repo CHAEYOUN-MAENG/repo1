@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .class1{
+            margin-top: 50px;
+            padding-bottom: 10px;
+            text-align: right;
+        }
+        .green{
+            border-color: lightgreen ;
+            background-color: lightgreen;
+            color: white;
+        }
+        .class2, .class3, .r2 {
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        .class2{
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .class3{
+            /* position:absolute;
+            top: 85px;
+            left: 1170px; */
+            float: right;
+            border: 1px solid black;
+            padding: 5px;
+        }
+        .class9{
+            /* border:solid red; */
+            padding: 3px;
+        }
+        .class4{
+            text-align: right;
+            padding-bottom: 10px;
+        }
+        .table, .class8{
+            margin: 0 auto;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .table{
+            width: 100%;
+            height: 300px;
+            border-top: 1px solid black;
+        }
+        .class5{
+            /* border: 1px solid black; */
+            padding-bottom: 30px;
+            margin-top: 10px;
+        }
+        .class7{
+            display: inline;
+            float: right;
+            /* margin-left: 1000px; */
+            /* border: 1px solid red; */
+        }
+        .class6{
+            /* border: 1px solid red; */
+            padding-left: 550px;
+            /* display: flex;
+            justify-content: center;
+            justify-content: space-evenly; */
+        }
+        .r2{
+            font-size: 20px;
+            font-weight: 300;
+            margin:5px;
+        }
+        .r1{
+            border: 1px solid black;
+            padding:5px;
+        }
+        .class3:hover{
+            background-color: yellow;
+        }
+        .r1:hover{
+            background-color: yellow;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+    <div>
+        <div class="class1">
+            <input type="text"><input class="green" type="button" value="검색">
+        </div>
+        <div class="class9">
+            <div class="class2">
+                09. 생산관리 프로그래밍기초C#(과제제출)
+            </div>
+            <div class="class3">
+                게시판 분석
+            </div>
+        </div>
+        <div class="class4">
+            <span>새글 구독</span><input type="checkbox">
+            <input type="checkbox"><span> 공지 숨기기</span>
+            <select name="개수">
+                <option>5개씩</option>
+                <option>10개씩</option>
+                <option>15개씩</option>
+            </select>
+        </div>
+        <table class="table">
+            <tr>
+                <td colspan="3">제목</td>
+                <td>작성자</td>
+                <td>작성일</td>
+                <td>조회</td>
+                <td>좋아요</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>392</td>
+                <td>생산관리 프로그래밍기초 c#(과제제출)-유상준</td>
+                <td>유상준</td>
+                <td>2024.04.16</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>391</td>
+                <td>생산관리 프로그래밍기초 c#(과제제출)-임우혁</td>
+                <td>임우혁</td>
+                <td>2024.04.16</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>388</td>
+                <td>생산관리 프로그래밍기초 c#(과제제출)-송우석</td>
+                <td>송우석</td>
+                <td>2024.04.16</td>
+                <td>1</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>386</td>
+                <td>생산관리 프로그래밍기초 c#(과제제출)-이민영</td>
+                <td>이민영</td>
+                <td>2024.04.15</td>
+                <td>2</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>377</td>
+                <td>생산관리 프로그래밍기초 c#(과제제출)-허재영</td>
+                <td>허재영</td>
+                <td>2024.04.09</td>
+                <td>2</td>
+                <td>0</td>
+            </tr>
+        </table>
+        <div class="class5">
+            <input type="checkbox"> 전체선택
+            <!-- <input type="button" value="이동">
+            <input type="button" value="삭제">
+            <input type="button" value="글쓰기"> -->
+            <div class="class7">
+            <span class="r1">이동</span>
+            <span class="r1">삭제</span>
+            <span class="r1">글쓰기</span>
+            </div>
+        </div>
+        <div class="class6">
+            <div class="r2">1</div>
+            <div class="r2">2</div>
+            <div class="r2">3</div>
+            <div class="r2">4</div>
+        </div>
+    <hr>
+        <div class=" class8">
+            <select>
+                <option>전체기간</option>
+                <option>단위기간</option> 
+            </select>
+            <select>
+                <option>게시글 + 댓글</option>
+                <option>게시글</option>
+                <option>댓글</option> 
+            </select>
+            <input type="text"><input class="green" type="button" value="검색">
+        </div>
+    </div>
+</body>
+</html>

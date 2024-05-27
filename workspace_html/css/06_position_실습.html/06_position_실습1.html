@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습1</title>
+    <style>
+        .image1{
+            /* border:1px solid red; */
+            height: 800px;
+            width: 1250px;
+            background-image: url("https://images03.nicepage.com/c461c07a441a5d220e8feb1a/83a8fdf9c53c5f7d902928df/sxmin.jpg");
+            background-position: center;
+        }
+        .parent1{
+            /* border: 1px solid red; */
+            width: 450px;
+            height: 300px;
+            background-color: white;
+            padding: 20px;
+        }
+        .parent2{
+            margin-bottom: 25px;
+        }
+        .class1{
+            margin-left: 25px;
+            margin-top: 25px;
+            background-color: yellow;
+            /* border: 1px solid red; */
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: 900;
+        }
+        .class2{
+            margin-left: 25px;
+            margin-top: 25px;
+        }
+        .class3{
+            margin-left: 25px;
+        }
+        .class4{
+            /* 왜 font가 안바뀌는지 */
+            font-size: 50px;
+            font-weight: 900;
+            margin-bottom: 25px;
+            margin-left: 25px;
+            margin-top: 10px;
+            /* font-size: 25px; */
+        }
+        .absolute{
+            position: absolute;
+            top:468px;
+            left: 100px;
+        }
+        .font1{
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-weight: 900;
+            font-size: large;
+            color: gray;
+        }
+        .font2{
+            position: absolute;
+            top: 10px;
+            left: 1200px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="image1">  
+        <div class="font1">
+            logo
+        </div>
+        <div class="font2">
+            HOME
+        </div>
+        <div class="parent1 absolute">
+            <div class="class4">
+                success
+            </div>
+            <div class="class3">
+             Organizations need strong and capable strategic leaders who can motivate, coach, and inspire people to do strategic work...
+            </div>
+            <div class="class2">
+                Image from <strong>Freepik</strong>
+            </div>
+            <div class="class1">
+                Learn more
+            </div>
+        </div>
+    </div>
+</body>
+</html>

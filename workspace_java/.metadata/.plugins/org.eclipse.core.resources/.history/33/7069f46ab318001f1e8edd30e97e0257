@@ -1,0 +1,13 @@
+package sec03.exam01;
+
+public class Hello {
+/* 범 위 주 석 */
+	public static void main(String[] args) {
+         // TODO Auto-generated method stub
+		 // 한줄 주석
+		
+		System.out.println("Hello World");
+		
+	} 
+
+}

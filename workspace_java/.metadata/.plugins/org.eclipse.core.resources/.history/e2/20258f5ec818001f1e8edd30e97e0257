@@ -1,0 +1,31 @@
+package sec01.exam01;
+
+public class VarExam {
+
+	public static void main(String[] args) {
+
+		// 변수 선언: 자료의 종류(Type) 한칸띄고 이름표
+		int score; // 선언부
+		score = 90; // 할당, 값을 넣기
+
+//		int value;
+//		value = 30;
+		int value = 30; // 선언과 동시에 초기화
+
+		value = 31; // 값 변경 : 그래서 "변"수
+
+//		score + value -> 90 + 31
+//		value = score + value;
+//		
+		int value2 = score + value;
+
+//		int val;
+//		int val2 = val + 10; 
+//		선언후에 값을 넣지 않으면 변수를 사용하지 못한다
+//		int val; 같은 이름의 변수를 선언할 수 없다
+
+		System.out.println(value2);
+
+	}
+
+}

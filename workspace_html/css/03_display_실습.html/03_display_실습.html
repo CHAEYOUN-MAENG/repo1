@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .parent{border: 1px solid black;} */
+        .parent{/*border:1px solid black;*/
+                padding-top: 50px;
+                padding-bottom: 50px;
+                /* width: 700px; */
+                margin-left: 260px;}
+        .parent > div {display: inline-block;
+                       vertical-align: top;}
+        #i1 {width: 300px;
+             height: 400px;
+             /* margin-left: 305px; */
+             margin-right: 30px;}
+        .c2 {/*border: 1px solid red;*/
+             width: 300px;
+             height: 350px;
+             border: 1px solid gray;
+             /* margin-left: 30px; */
+             padding: 25px 20px;}
+        .up{margin-left: 100px;
+            border: 1px solid black;
+            padding: 5px;
+            margin: 45px 100px;
+            /* margin-left: 5px; */
+            opacity: 0.5;
+            display: inline-block;}
+        /* .c3{margin-top: 45px;
+            margin-left: 5px;
+            opacity: 0.5;} */
+
+
+        div.parent2{/*border: 1px solid black;*/
+                    padding-left: 150px;
+                    padding-bottom: 30px;
+                    margin: auto;}
+        #h1{margin-left: 157px;
+            display: inline;}
+        div.c4{border: 1px solid gray;
+               display: inline-block;
+               width: 300px;
+               height: 400px;
+               margin-top: 20px;
+               vertical-align: top;}
+        .i2{width: 300px;
+            height: 210px;}
+        .s1{margin-left: 13px;}
+        .s2{/*border: 1px solid black;*/
+            display: inline-block;
+            color:red;
+            padding: 50px;
+            margin-left: 80px;}    
+        .s3{/*border: 1px solid black;*/
+            margin-left: 125px;}
+        /* .wrapper{width: 70%; marigin: 0 auto;} 하면 전체적으로 가운데로 옮겨짐 (공통)*/
+        /* 그림을 100%로 설정하고 부모의 크기를 수정하면 줄여짐 -> 그럼 하나만 수정해도 괜찮아짐 */
+        /* .item div:not(image)를 설정해도 됨 */
+
+
+        .parent3{/*border: 1px solid black;*/
+                display: inline-block;
+                width: 500px;
+                height: 680px;
+                /* vertical-align: top; */
+                margin-left: 75px;
+                margin-top: 30px;}
+        .i3{width: 500px;
+            height: 300px;}
+        .s7{/*border: 1px solid black;*/
+            border-left: solid blue;
+            margin-top: 50px;
+            padding-left: 20px;
+            display: inline-block;}
+        /* .s6{margin-top: 50px;} */
+        .s5{margin-bottom: 50px;}
+        .s4{padding-bottom: 10px;}
+        .s8{/*border: 1px solid black;*/
+            width: 400px;
+            padding-left: 50px;
+            margin-top: 40px;}
+        .i4{width: 500px;
+            height: 350px;}    
+
+
+        .parent4{border: 1px solid black;
+                /* margin-top: 30px; */
+                width: 400px;
+                display: inline-block;
+                margin-left: 100px;}
+        .parent5{display: inline-block;
+                vertical-align: top;
+                margin-left: 50px;}
+        .i5{width: 400px;
+            height: 500px;}
+        .i6{width: 300px;
+            height: 400px;}
+        .i7{width: 200px;
+            height: 300px;
+            margin-left: 20px;}
+        .i8{width: 200px;
+            height: 150px;
+            display: inline-block;}
+        #d1{border: 1px solid black;
+            display: inline-block;}
+        #d2{border: 1px solid red;
+            display: inline-block;}
+        .parent6{display: inline-block;}
+    </style>
+</head>
+
+<body>
+<!-- 실습1 -->
+    <div class="parent">
+        <div class="c1">
+            <img id=i1 src ="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/80f9d9d02af9527ab358c361/pexels-photo-3335367.jpeg">
+        </div>
+        <!-- img는 div로 묶지 않고 크기만 조정해서 놓은 다음, 글씨를 너비와 inline-block을 통해 옆으로 보내고 CSS로 조정  -->
+        <div class="c2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi at dolorum delectus a ipsum blanditiis necessitatibus maxime repellendus, quas, distinctio ipsam vero temporibus ex tenetur officia non dolore error est.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi at dolorum delectus a ipsum blanditiis necessitatibus maxime repellendus, quas, distinctio ipsam vero temporibus ex tenetur officia non dolore error est.
+            <!-- <div class="c3"> -->
+                <span class="up"> read more</span>
+            <!-- </div> -->
+        </div>
+    </div>
+
+<!-- 실습2  -->
+<hr>
+<!-- 지금은 h1으로 따로 빼서 id를 줬지만 div로 제목까지 지정해서 한번에 class를 주고 margin auto를 줘도 됨 -->
+    <h1 id="h1">Extraordinary rooms with elegant, yet a rustic atmosphere</h1>
+    <div class="parent2">
+        <div class="c4 c5">
+            <img class="i2" src="https://assets.nicepagecdn.com/d2cc3eaa/88834/images/34.jpg">
+            <div>
+                <span class="s1"><strong>Apartment with Amazing Park View</strong></span>
+            <br>
+                <span class="s2"><strong>45$</strong></span>
+            <br>
+                <span class="s3">VIEW</span>
+            </div>
+        </div>
+        <!-- <div = parent2>
+             <div> 제목<h1 사용> </div>
+             <div>
+             <div>이미지</div>
+             <div>제목</div>
+             <div>숫자</div>
+             <div>view</div>
+             </div>
+             <div> -->
+        <div class="c4 c6">
+            <img class="i2" src="https://assets.nicepagecdn.com/d2cc3eaa/88834/images/modern-studio-apartment-design-with-bedroom-living-space_1262-12375.jpg">
+            <div>
+                <span class="s1"><strong>Double Deluxe Room - Double Bed</strong></span>
+            <br>
+                <span class="s2"><strong>35$</strong></span>
+            <br>
+                <span class="s3">VIEW</span>    
+            </div>
+        </div>
+        <div class="c4 c7">
+            <img class="i2" src="https://assets.nicepagecdn.com/d2cc3eaa/88834/images/4.jpg">
+                <span class="s1"><strong>Luxury Apartment - Ground Floor</strong></span>
+            <br>
+                <span class="s2"><strong>40$</strong></span>
+            <br>
+                <span class="s3">VIEW</span>    
+            </div>
+        </div>
+    </div>
+
+<!-- 실습3 -->
+<hr>
+    <div class="wrapper">
+        <div class="parent3">
+            <div class="s4">
+                <span><h1>2018 Ivor Novello awards: Dave track attacking Theresa May wins best song</h1></strong></span>
+            </div>
+            <div class="s5">
+                <span>British rap music has triumphed at the 2018 Ivor Novello songwriting awards, with Stormzy and Dave picking up prestigious prizes.</span>
+            </div>
+            <div class="s6">
+                <img class="i3" src ="https://images01.nicepage.com/bb/1d/bb1d2e5cabdda9d7e02aaf1f96309f50.jpeg">
+            </div>
+            <div class="s7">
+                <span>Ed Sheeran was named songwriter of the year, but lost the album prize to Stormzy, with another rapper, Dave, winning best contemporary song for Question Time</span>
+            </div>
+        </div>
+        <div class="parent3">
+            <div>
+                <img class="i4" src="https://images01.nicepage.com/bb/1d/bb1d2e5cabdda9d7e02aaf1f96309f50.jpeg">
+            </div>
+            <div class="s8">
+                Dave, the Streatham rapper who at just 19 has already guested with US superstar Drake, was awarded best contemporary song for Question Time, a seven-minute hip-hop track that criticises Theresa May over lack of NHS funding, military involvement in Syria, wage stagnation and more. The track also castigates David Cameron over Brexit (“You fucked us, resigned, then sneaked out the firing line”) and ponders whether Jeremy Corbyn can be an effective, honest politician. 
+                One particularly heartfelt verse attacks May over her handling of the Grenfell Tower disaster. 
+            </div>
+        </div>
+    </div>
+
+<!-- 실습4  -->
+<hr>
+<div class="parent4">
+    <div>
+        <span><img class="i5" src="https://assets.nicepagecdn.com/d2cc3eaa/38002/images/houseofsilencemariamarinina03.jpg"></span>
+    </div>
+    <div>
+        <span><strong>Thai Style Home Wabi Sabi</strong></span>
+    </div>
+    <div>
+        <span>The home is surrounded by a landscaped garden and there are lots of different neighbours in the area.  The average home is created for a single family.</span>
+    </div>
+</div>
+<div class="parent5">
+    <div id="d1">
+        <img class="i6" src="https://assets.nicepagecdn.com/d2cc3eaa/38002/images/0f9a91f61af2dac432841181deef820c.jpg">
+    </div>
+    <div id="d2">
+         <img class="i7" src="https://assets.nicepagecdn.com/d2cc3eaa/38002/images/22c7537e24e94a7b5fc4c74be769544a.jpg">
+    </div>
+</div>
+<div class="parent6">
+    <div>
+        <img class="i8" src="https://assets.nicepagecdn.com/d2cc3eaa/38002/images/0ee610f6080f69b8179888943e49b794.jpg">
+    </div>
+</div>
+</body>
+</html>

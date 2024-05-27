@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습1</title>
+    <style>
+    .wrap1{
+    /* border: 1px solid red; */
+    height: 650px;
+    margin: 0 auto;
+    background-image: url("https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/9b22e6f1444b5ae785f3a267/pexelsphoto3326103.jpeg");
+    background-position: center;
+    padding-top: 10px;
+    /* margin 병합 해결할 때, 전체 부모한테 패딩을 줘서 해결하기 */
+    }
+    .box1{
+    /* border: 1px solid white; */
+    height: 60px;
+    width: 365px;
+    background-color: white;
+    font-size: 2em;
+    font-weight: 800;
+    line-height: 60px;
+    position: relative;
+    top: 60%;
+    }
+    .box2{
+    height: 60px;
+    width: 300px;
+    background-color: darkorange;
+    font-size: 2em;
+    font-weight: 800;
+    line-height: 60px;
+    position: relative;
+    top: 58%;
+    }
+    .box3{
+    border: 1px solid white;
+    width: 13%;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    font-size: 20px;
+    margin: 0 15px
+    /* 마진을 주었을때 그림도 왜 함께 밀리는지 */
+    }
+    .img1{
+    width: 20px;
+    height: 20px;
+    padding-left: 70px;
+    }
+    .wrap2{
+    margin: 10% 10%;
+    }
+    .box4{
+    border: 6px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 300px;
+    vertical-align: bottom;
+    margin-bottom: 120px;
+    background-color: white;
+    }
+
+
+    .box5{
+    display: inline-block;
+    margin-left: 100px;
+    }
+    .box5 img{
+    /* border: 1px solid red; */
+    display: inline-block;
+    width: 400px;
+    }
+    .font{
+    text-align: left;
+}
+    .f1{
+    margin-top: 40px;
+    padding: 20px 35px;
+    font-size: 2em;
+    }
+    .f2{
+    padding: 10px 35px;
+    }
+    .yellow{
+    background-color: burlywood;
+    height: 650px;
+    width: 500px;
+    position: absolute;
+    top: 740px;
+    left: 350px;
+    z-index: -99;
+    }
+
+
+
+    .clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+    }
+    .wrap3{
+    margin-bottom: 50px;
+    }
+    .box{
+    /* border: 1px solid red; */
+    width: 260px;
+    height: 260px;
+    margin: 20px;
+    float: left;
+    }
+    .box img{
+    width: 260px;
+    height: 260px;
+    }
+    .fr2, .fr4{
+    border: 6px solid black;
+    height: 250px;
+    background-color: white;
+    }
+    .fo1{
+    padding-left: 15px;
+    padding-top: 45px;
+    font-size: 25px;
+    }
+    .fo2{
+    padding-left: 15px;
+    padding-top: 15px;
+    }
+
+
+    .wrap4{
+    background-image: url("https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/992eb4a786e9521ea39ea995/pexelsphoto940302.jpeg");
+    height: 800px;
+    width: auto;
+    margin-bottom: 80px;
+    background-position: center;
+    }
+    .contain{
+    width: 1000px;
+    }
+    .font7, .font8{
+    text-align: left;
+    font-size: 20px;
+    }
+
+    .font7{
+    padding-top: 300px;
+    font-size: 2em;
+    }
+    .font8{
+    padding-top: 20px;
+    font-size: 15px;
+    }
+
+
+    .class1{
+    width: 400px;
+    height: 400px;
+    }
+    .d1{
+    display: inline-block;
+    margin-left: 80px;
+    }
+
+    .parent1{
+    position: relative;
+    }
+    .yellow2{
+    background-color: burlywood;
+    width: 1250px;
+    height: 200px;
+    position: absolute;
+    top: 100px;
+    z-index: -9;
+    }   
+
+
+    .wrap5{
+    margin: 0 auto;
+    padding: 80px 100px;
+    text-align: center;
+    }
+    .h1{
+    font-size: 30px;
+    font-weight: 700;
+    }
+    .h2{
+    text-align: center;
+    margin: 30px;
+    padding: 0 80px;
+    }
+    .h3{
+    display: inline-block;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    }
+    .h3:hover{
+    background-color: white;
+    color: black;
+    }
+
+
+    .flex{
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    }
+
+    .box6{
+    /* border: 1px solid black; */
+    width: 350px;
+    height: 350px;
+    }
+    .box6 img{
+    width: 350px;
+    height: 350px;
+    }
+    .box7{
+    text-align: center;
+    border: 5px solid black;
+    }
+
+    .b1{
+    padding-top: 20px;
+    font-size: 30px;
+    }
+    .b2{
+    padding-top: 50px;
+    margin: 0 20px;
+    text-align: center;
+    }
+    .b3{
+    padding-top: 30px;
+    }
+
+
+    .wrap6{
+    background-image: url("https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/3cb19967a4645debbcf2c90a/pexelsphoto3831823.jpeg");
+    height: 800px;
+    width: auto;
+    background-position: center;
+    position: relative;
+    }
+    .class2{
+    /* text-align: center; */
+    font-size: 2em;
+    font-weight: 800;
+    position: absolute;
+    top:700px;
+    left: 470px
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap1">
+        <div class="box3">
+            search <img class="img1" src="https://cdn-icons-png.flaticon.com/512/2866/2866321.png">
+        </div>
+        <hr>
+        <div class="box1">
+            YOUR FAVORITE FOOD
+        </div>
+        <div class="box2">
+            MAKE IT GOOD
+        </div>
+    </div>
+
+    <div class="wrap2">
+        <div class="box4">
+            <div class="font f1">
+                Cafe Food Menu
+            </div>
+            <div class="font f2">
+                All of our food is prepared by our team of trained kitchen staff from the sealed glass kitchen where you can see your food being made, without risk of little paws getting involved.
+            </div>
+        </div>
+        <div class="box5">
+            <img src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/e07fd7349a87546e950fb324/photo1564305564045c62d40dd0123.jpg">
+        </div>
+    </div>
+    <div class="yellow"></div>
+
+    <!-- flex를 줄지 내일 해보고 -->
+    <div class="wrap3 clearfix">
+    <!-- <div class="wrap3 flex"> -->
+        <div class="box fr1"><img src="https://images01.nicepage.com/a2/fc/a2fc4ef890f44fa0a9bb7787ce17008d.jpeg"></div>
+        <div class="box fr2">
+            <div class="font fo1">
+                Have a healthy afternoon snack
+            </div>
+            <div class="font fo2">
+                The majority of people in the working world are likely familiar with the mid-afternoon slump.
+            </div>
+        </div>
+        <div class="box fr3"><img src="https://images01.nicepage.com/62/43/6243854162c536333ab218a58996077f.jpeg"></div>
+        <div class="box fr4">
+            <div class="font fo1">
+                Include lots of fibre in your diet
+            </div>
+            <div class="font fo2">
+                Fibre is known to help aid with digestion. However, that's not its only benefit.
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap4">
+        <div class="contain">
+            <div class="font7">
+                Time to Make a Difference
+            </div>
+            <div class="font8">
+                Phasellus scelerisque arcu vestibulum tempor tempor. Donec vulputate leo et metus hendrerit bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. In scelerisque nisl nec ornare euismod.
+            </div>
+        </div>
+    </div>
+
+    <div class="parent1">
+        <div class="d1">
+            <img class="class1" src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/b997f5453a025796b7e011f6/pexelsphoto3659862.jpeg">
+        </div>
+        <div class="d1">
+            <img class="class1" src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/89f0b40da8d05b4088f24d63/pexelsphoto704569.jpeg">
+        </div>
+        <div class="yellow2"></div>
+    </div>
+    
+    <div class="wrap5">
+        <div class="h1">
+            Which is the tastiest food?
+        </div>
+        <div class="h2">
+            The world's most delicious food is not Massaman curry, as we suggested, but a meaty, spicy, gingery dish from west Sumatra. "There is no love sincerer than the love of food," George Bernard Shaw said. Judging by the number of amazing dishes out there, he was right.
+        </div>
+        <div class="h3">
+            REAE MORE
+        </div>
+    </div>
+    <div class="flex">
+        <div class="box6">
+            <img src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/e5a2d57a68bc5de4b52746a3/pexelsphoto3756523.jpeg">
+        </div>
+        <div class="box6 box7">
+            <div class="b1">
+                <strong>Restaurant</strong> <br> ORGANIC FARM
+            </div>
+            <div class="b2">
+                We bring the season’s best mix of organic produce and hand-crafted farm products conveniently to your door by growing and partnering with local farms and artisans in your area.
+            </div>
+            <div class="b3">
+                LOO HUDSON
+            </div>
+        </div>
+        <div class="box6">
+            <img src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/fcee991985085d4093370a3d/pexelsphoto3756525.jpeg">
+        </div>
+    </div>
+    <div class="wrap6">
+        <div class="class2">
+            Enjoy Morning Time
+        </div>
+    </div>
+</body>
+</html>
