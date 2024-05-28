@@ -158,7 +158,14 @@ public class IfExam {
 		} else if (month == 12 || (month == 1 || month == 2)) {
 			System.out.println("겨울");
 		}
-
+		
+		if(month == 1) System.out.println("한줄만 if에 적용");
+		// else를 조합하는 경우 {}를 써라
+		
+		String str = (month >= 3 && month <=5) ? "봄임" : "봄 아님";
+		System.out.println(str);
+		//if 와 else를 써서 만들수도있음
+		
 		// break가 없을 때 다음 case도 실행되는 원리를 이용해서
 		switch (month) {
 		case 3:
@@ -183,7 +190,6 @@ public class IfExam {
 
 		// char, byte, short, int (즉, int 이하), String만 허용됨
 		// boolean, long, float, double은 못씀
-
 		
 	}
 
