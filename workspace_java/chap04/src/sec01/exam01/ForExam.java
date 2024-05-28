@@ -111,38 +111,70 @@ public class ForExam {
 		// 3. 1 ~ 10 까지 한줄에 3개씩 출력하기
 		
 		// 1. 증감식 이용하기
+		System.out.println(2);
+		int i4 = 4;
+		
+		System.out.println(4);
+		i4 = i4 + 2; //6
+		
+		System.out.println(6);
+		i4 = i4 + 2;
+		
+		System.out.println("---------------");
+		for(int i5 = 2; i5 <= 10; i5 = i5 + 2) {
+			System.out.println(i5);
+		}
 
-//		
+		System.out.println("---------------");
 		// 2. if문 이용하기 
-		int x = 1;
+		int num = 0;
+		if (num % 2 == 0) {
+			System.out.println(num);
+		} 
 		
-		if (x % 2 == 0) {
-			System.out.println("짝수입니다");
-		} else {
-			System.out.println("홀수입니다");
+		num = 1;
+		if (num % 2 == 0) {
+			System.out.println(num);
+		} 
+		
+		num = 2;
+		if (num % 2 == 0) {
+			System.out.println(num);
+		} 
+		
+		num = 3;
+		if (num % 2 == 0) {
+			System.out.println(num);
+		} 
+		
+		
+		System.out.println("------------------");
+		for(int num2 = 1; num2 <= 10 ; num2++) {
+			if (num2 % 2 == 0) {
+				System.out.println(num2);
+			}
 		}
 		
-		x = 3;
+		System.out.println("---------------------");
+		// 3. 1 ~ 10 까지 한줄에 3개씩 출력하기
+		System.out.println(123);
+		System.out.println(456);
 		
-		if (x % 2 == 0) {
-			System.out.println("짝수입니다");
-		} else {
-			System.out.println("홀수입니다");
-		}
+		System.out.print(1);
+		System.out.print(2);
+		System.out.print(3);
+		System.out.println();
 		
-		x = x + 1;
-		
-		if (x % 2 == 0) {
-			System.out.println("짝수입니다");
-		} else {
-			System.out.println("홀수입니다");
-		}
-		
-		
+		int num3 = 3;
+		num3++;
+		System.out.print(num3);
+		num3++;
+		System.out.print(num3);
+		num3++;
+		System.out.print(num3); // 6
 
+		
+	
 
-		
-		
+		}
 	}
-
-}
