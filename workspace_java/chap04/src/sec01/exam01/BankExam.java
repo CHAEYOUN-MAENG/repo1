@@ -9,27 +9,31 @@ public class BankExam {
 		// 은행 계좌의 잔고 관리 시스템
 		// 1. 입금, 2. 출금, 3. 조회, 4. 종료
 		// 입금 : 잔고에 더하기
-		//			* 0, 음수는 실행되지 않게 - 금액을 확인하세요
+		// * 0, 음수는 실행되지 않게 - 금액을 확인하세요
 		// 출금 : 잔고에서 빼기
-		//			* 잔액보다 큰 금액은 실행되지 않게 - 잔고가 부족합니다
+		// * 잔액보다 큰 금액은 실행되지 않게 - 잔고가 부족합니다
 		// 조회 : 잔고출력
 		// 종료 : 종료
-		
+
+		int i = 0;
+		int b = 0;
 		Scanner scan = new Scanner(System.in);
 //		System.out.println("입금 잔액을 입력하세요");
 		int money = scan.nextInt();
-		while(money != 4) {
-				if (money == 1) {
-					System.out.println("입금금액을 입력해주세요");
-					int i = scan.nextInt();
-					System.out.println("입금금액 : "+ i);
-					break;
-				}
+		while (money != 4) {
+			if (money == 1) {
+				System.out.println("입금금액을 입력해주세요");
+				i = scan.nextInt();
+				System.out.println("입금금액 : " + i);
+			} else if (money == 2) {
+				System.out.println("출금금액을 입력해주세요");
+				b = scan.nextInt();
+				System.out.println("출금금액 : " + b);
+				System.out.println("남은잔액 : " + (i - b));
 			}
+		}
 		System.out.println("종료");
 
-		
-		
 	}
 
 }
