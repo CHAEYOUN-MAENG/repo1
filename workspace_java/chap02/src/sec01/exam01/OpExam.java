@@ -85,6 +85,19 @@ public class OpExam {
 		 * 
 		 * 출력 값이 반대가 되야함 left = 멜론, right = 수박
 		 */
+		
+		String left = "수박";
+		String right = "멜론";
+		
+		String table = left;
+		left = right;
+		right = table;
+		
+		System.out.println("left : "+ left);
+		System.out.println("right : "+ right);
+		
+		// swap 푸는 문제 방법
+		
 
 		System.out.println();
 //		전체 7234
