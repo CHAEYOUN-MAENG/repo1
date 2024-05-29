@@ -34,6 +34,9 @@ public class BankExam {
 		}
 		System.out.println("종료");
 
+		System.out.println();
+		
+		
 	}
 
 }
