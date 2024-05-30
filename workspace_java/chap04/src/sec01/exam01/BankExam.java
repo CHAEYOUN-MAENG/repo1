@@ -14,29 +14,36 @@ public class BankExam {
 		// * 잔액보다 큰 금액은 실행되지 않게 - 잔고가 부족합니다
 		// 조회 : 잔고출력
 		// 종료 : 종료
-
+		
 		int i = 0;
 		int b = 0;
+		int c = 0; // 잔액
+		int money = 1;
 		Scanner scan = new Scanner(System.in);
-//		System.out.println("입금 잔액을 입력하세요");
-		int money = scan.nextInt();
-		while (money != 4) {
+		System.out.println("선택하세요");
+		System.out.println("1. 입금, 2. 출금, 3. 조회, 4. 종료");
+//		int money = scan.nextInt();
+		while (money >=1 && money <=3) {			
+			money = scan.nextInt();
 			if (money == 1) {
 				System.out.println("입금금액을 입력해주세요");
 				i = scan.nextInt();
 				System.out.println("입금금액 : " + i);
-			} else if (money == 2) {
+			} 
+			if (money == 2) {
 				System.out.println("출금금액을 입력해주세요");
 				b = scan.nextInt();
 				System.out.println("출금금액 : " + b);
-				System.out.println("남은잔액 : " + (i - b));
+//				System.out.println("남은잔액 : " + (i-b));
 			}
+			if (money == 3) {
+				System.out.println("잔액을 조회하겠습니다");
+//				b = scan.nextInt();
+				System.out.println("잔액조회 : " + (i-b));
+			}
+			
 		}
 		System.out.println("종료");
-
-		System.out.println();
-		
-		
 	}
 
 }
