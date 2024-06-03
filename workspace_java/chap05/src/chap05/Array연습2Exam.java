@@ -74,7 +74,7 @@ public class Array연습2Exam {
 
 		// {3, 4, 7, 5, 1, 4, 6, 4, 7}
 		// 4. 홀/짝수의 각각 개수를 출력
-		int[] contain = { 3, 4, 7, 5, 1, 4, 6, 4, 7 };
+		int[] contain = {3, 4, 7, 5, 1, 4, 6, 4, 7 };
 
 		int one = 0;
 		int two = 0;
@@ -92,8 +92,8 @@ public class Array연습2Exam {
 		System.out.println();
 
 		// 5. 주어진 수(예를 들어 4)보다 큰 숫자의 개수
-		int[] big = { 3, 4, 7, 5, 1, 4, 6, 4, 7};
-		//            0, 1, 2, 3, 4, 5, 6, 7, 8			  	
+		int[] big = {3, 4, 7, 5, 1, 4, 6, 4, 7};
+		//           0, 1, 2, 3, 4, 5, 6, 7, 8			  	
 
 		int four = 0;
 
@@ -110,10 +110,7 @@ public class Array연습2Exam {
 		
 		// 6. 두번째 최대값
 		
-		System.out.println();
-		
 		// 7. 내림차순으로 정렬(큰 수부터 작은 수 순으로)
-		
 		
 		
 		// 로또 6개 번호(1~45)
@@ -127,8 +124,19 @@ public class Array연습2Exam {
 		// 9-3. 모든 자리의 예약 가능 여부 출력
 		// 9-4. 예약 가능한 자리만 출력
 
+		System.out.println();
+		
 		// 10. 임시 비밀번호 8자리 만들기
 		// 10-1. 모두 다 숫자로
+		int[] password = new int[8];
+		for (int i = 0; i < password.length; i++) {
+			double num = Math.random()* 10; // 0 ~ 9.9999
+			password[i] = (int)num; // 0 ~ 9
+		}
+		for (int i = 0; i < password.length; i++) {
+			System.out.print(password[i]);
+		}
+		
 		// 10-2. 모두 다 소문자로(힌트: char ascii)
 		// 10-3. 솟자 2개 이상, 대문자 1개 이상, 소문자 1개 이상 조합
 

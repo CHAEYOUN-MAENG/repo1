@@ -28,18 +28,21 @@ public class BankExam {
 			if (money == 1) {
 				System.out.println("입금금액을 입력해주세요");
 				i = scan.nextInt();
+				c += i;
 				System.out.println("입금금액 : " + i);
+				System.out.println("현재잔액 : " + c);
 			} 
 			if (money == 2) {
 				System.out.println("출금금액을 입력해주세요");
 				b = scan.nextInt();
+				c -= b;
 				System.out.println("출금금액 : " + b);
-//				System.out.println("남은잔액 : " + (i-b));
+				System.out.println("현재잔액 : " + c);
 			}
 			if (money == 3) {
 				System.out.println("잔액을 조회하겠습니다");
 //				b = scan.nextInt();
-				System.out.println("잔액조회 : " + (i-b));
+				System.out.println("잔액조회 : " + c);
 			}
 			
 		}
