@@ -112,31 +112,51 @@
         // }
         // console.log(result)
 
-        for(let j=1; j<=9; j++){
-            result='';
-            for(let i=2; i<=4; i++){
-                result += `${i}x${j}=${i*1}\t`
-            }
-            console.log(result)
-        }
+        // for(let j=1; j<=9; j++){
+        //     result='';
+        //     for(let i=2; i<=4; i++){
+        //         result += `${i}x${j}=${i*1}\t`
+        //     }
+        //     console.log(result)
+        // }
         
-        for(let j=1; j<=9; j++){
-            result='';
-            for(let i=5; i<=7; i++){
-                result += `${i}x${j}=${i*1}\t`
-            }
-            console.log(result)
-        }
+        // for(let j=1; j<=9; j++){
+        //     result='';
+        //     for(let i=5; i<=7; i++){
+        //         result += `${i}x${j}=${i*1}\t`
+        //     }
+        //     console.log(result)
+        // }
 
-        for(let k=2; k<9; k+=3){
+        // for(let k=2; k<9; k+=3){
+        //     for(let j=1; j<=9; j++){
+        //         result='';
+        //         for(let i=k; i<=(k+2); i++){
+        //             if(i<=9){
+        //                 result += `${i}x${j}=${i*1}\t`
+        //             }
+        //         }
+        //     console.log(result)
+        //     }
+        // }
+
+        let dan_max = 10;
+        for(let k=2; k<=dan_max; k += 3){
             for(let j=1; j<=9; j++){
-                result='';
-                for(let i=k; i<=(k+2); i++){
-                    if(i<=9){
-                        result += `${i}x${j}=${i*1}\t`
-                    }
+                result = ''
+                let max = k+2;
+                if(max > dan_max){
+                    max = dan_max;
                 }
-            console.log(result)
+                for(let i=k; i<=max; i++){
+                    result += `${i}x${j}=${i*j}\t`
+                }
+                // for(let i=k; i<=(k+2); i++){
+                //     if(i <= dan_max){
+                //         result += `${i}x${j}=${i*j}\t`
+                //     }
+                // }
+                console.log(result)
             }
         }
 
@@ -147,29 +167,37 @@
             }
         }
 
-        console.log("주사위 합별 조합")
+        // console.log("주사위 합별 조합")
+        // for(let k=2; k<=12; k++){
+
+        //     result= '합이 '+ k +'일때 : ';
+            
+        //     for(let i=1; i<=6; i++){
+        //         for(let j=1; j<=6; j++){
+        //             if(i+j == k){
+        //                 result += `[${i}, ${j}]`;
+        //             }
+        //         }
+        //     }
+        //     console.log(result);
+        // }
+
+        console.log('-- 주사위 합 별 조합 ---------');
+
         for(let k=2; k<=12; k++){
-            result= '합이 '+ k +'일때 : ';
+
+            result = '합이 '+ k +'일때 : ';
             for(let i=1; i<=6; i++){
                 for(let j=1; j<=6; j++){
                     if(i+j == k){
+                        // console.log( i +", "+ j);
                         result += `[${i}, ${j}]`;
                     }
                 }
             }
+            console.log(result);
         }
-        console.log(result);
-
-
-
-
-
-
     </script>
-
-
-
-
 </head>
 <body>
     
