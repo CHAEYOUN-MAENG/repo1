@@ -102,16 +102,29 @@
         // '입력한 수는 100보다 큰 수, 양수, 홀수'
         // 98이 주어졌을때
         // '입력한 수는 100보다 작은 수, 양수, 짝수'
-        let r = prompt ("값 입력");
-        let u = prompt ("값 입력");
-        r = Number(r);
-        u = Number(u);
+        let num = prompt ("값은")
+        num = Number(num);
+        // let num = 125;
+        let read = "입력한 수는";
 
-        if ( r > 100 && r % 0 && r >= 0 ){
-            console.log("입력한 수는 100보다 큰 수, 양수, 홀수");
-        } else if ( u < 100 && u % 0 && u > 0){
-            console.log("입력한 수는 100보다 작은 수, 양수, 짝수");
+        if(num > 100){
+            read += '100보다 큰 수, '
+        } else{
+            read += '100보다 작은 수, '
         }
+
+        if(num >= 0){
+            read += '양수, '
+        } else{
+            read += '음수, '
+        }
+
+        if(num % 2 != 0){
+            read += '홀수'
+        } else{
+            read += '짝수'
+        }
+        console.log(read);
 
         // 삼항연산자
         let i = 10;
