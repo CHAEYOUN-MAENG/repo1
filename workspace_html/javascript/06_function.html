@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //호이스팅
+        let a3 = 5;
+
+        function test (){
+            console.log('test');
+            a3 = 3; // let 을 안쓰면 위에 a3가 선언되어있음에도 불구하고 3이 출력됨
+        }
+        // test(); -> 함수가 실행되는 순간에 a3 = 3; 이 함수 위로 올라감 / 함수도 올라감 
+        console.log("a3 :", a3);
+
+        // function 키워드로 시작 (함수도 변수임)
+        // 함수명 (키워드 빼고)
+        // () {} 가 형식 
+        // () 안에는 전달받을 내용을 담는 변수들을 기재
+        // return 키워드를 통해서 값을 돌려줄 수 있다 (변수를 설정해서 변수로 받으면 값이 출력됨)
+
+        // 함수를 쓰는 이유
+        // 1. 정해진 순으로 동작하는 코드의 묶음 
+        // 2. 코드의 재사용을 편하게 하기 위해서 
+        let z = 1;
+
+        function add(x, y){ // () 선언을 의미, 전달 받을 내용을 저장할 변수까지 선언 
+            let z = x + y;
+            console.log(z);
+
+            return z;
+        }
+        
+        let a = 3;
+        let b = 7;
+        let arr3 = add(a, b); // -> 10;  // () 실행을 의미, 전달할 내용을 넣을 수 있음 -> 함수 {}에 있는 걸 실행시켜라 하는 의미
+        // 순서만 중요함 변수는 바뀔 수 있음
+        console.log('arr3 :', arr3); // 돌려준게 없다(함수가 실행이되고 보고를 안함) 그래서 undefined가 나옴
+
+        let k = 3;
+        let l = 7;
+        add(k, l);
+
+
+        // x라는 이름의 기본 함수
+        function x(){
+
+        }
+        x(); // ()가 붙어있으면 함수이다, 즉 ()가 없으면 변수이다.
+
+        // 즉시 실행하는 예제
+        (function y(){
+            console.log(123)
+        })();
+
+
+        // 전달인자가 하나인 함수
+        function sqr(a){ // 전달인자 : a
+            let b = a * a;
+            return b;
+        }
+        let result = sqr(5);
+        console.log(result);
+
+        // 전달인자가 없는 함수
+        function printInfo(){
+            console.log("이름 : 맹채윤");
+            console.log("나이 : 비밀");
+        }
+
+        // 함수안에서 호출하는 함수
+        // add(x, y), spr(a)
+        // x, y를 더해서 제곱할꺼임
+        function fnInfn(first, second){
+            
+            let result1 = add(first, second); // 스택구조 (질문)
+            let result2 = sqr(result1);
+
+            return result2;
+        }
+        let result1 = fnInfn(1,2);
+        console.log(result1);
+
+        // 연습
+        function prc(v){
+            let t = v*5
+            return t;
+        }
+
+        let p = prc(4);
+        console.log(p);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
