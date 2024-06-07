@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
         //호이스팅
         let a3 = 5;
 
-        function test (){
+        function test() {
             console.log('test');
             a3 = 3; // let 을 안쓰면 위에 a3가 선언되어있음에도 불구하고 3이 출력됨
         }
@@ -26,13 +27,13 @@
         // 2. 코드의 재사용을 편하게 하기 위해서 
         let z = 1;
 
-        function add(x, y){ // () 선언을 의미, 전달 받을 내용을 저장할 변수까지 선언 
+        function add(x, y) { // () 선언을 의미, 전달 받을 내용을 저장할 변수까지 선언 
             let z = x + y;
             console.log(z);
 
             return z;
         }
-        
+
         let a = 3;
         let b = 7;
         let arr3 = add(a, b); // -> 10;  // () 실행을 의미, 전달할 내용을 넣을 수 있음 -> 함수 {}에 있는 걸 실행시켜라 하는 의미
@@ -45,19 +46,19 @@
 
 
         // x라는 이름의 기본 함수
-        function x(){
+        function x() {
 
         }
         x(); // ()가 붙어있으면 함수이다, 즉 ()가 없으면 변수이다.
 
         // 즉시 실행하는 예제
-        (function y(){
+        (function y() {
             console.log(123)
         })();
 
 
         // 전달인자가 하나인 함수
-        function sqr(a){ // 전달인자 : a
+        function sqr(a) { // 전달인자 : a
             let b = a * a;
             return b;
         }
@@ -65,7 +66,7 @@
         console.log(result);
 
         // 전달인자가 없는 함수
-        function printInfo(){
+        function printInfo() {
             console.log("이름 : 맹채윤");
             console.log("나이 : 비밀");
         }
@@ -73,28 +74,240 @@
         // 함수안에서 호출하는 함수
         // add(x, y), spr(a)
         // x, y를 더해서 제곱할꺼임
-        function fnInfn(first, second){
-            
+        function fnInfn(first, second) {
+
             let result1 = add(first, second); // 스택구조 (질문)
             let result2 = sqr(result1);
 
             return result2;
         }
-        let result1 = fnInfn(1,2);
+        let result1 = fnInfn(1, 2);
         console.log(result1);
 
         // 연습
-        function prc(v){
-            let t = v*5
+        function prc(v) {
+            let t = v * 5
             return t;
         }
 
         let p = prc(4);
         console.log(p);
 
+        // 전달인자는 순서대로 넘어오기 때문에
+        // 하나만 오면 a에 들어감 -> b에만 전달할 수 없음
+        function sum(a, b) {
+            console.log('a :', a);
+            console.log('b :', b);
+
+            // false : false, undefined, null, 0, ''
+            // true : false가 아닌 것
+            let c;
+            if (b != undefined) {
+                c = a + b;
+            } else {
+                c = a + a;
+            }
+
+            console.log('c :', c);
+            console.log('isNaN :', isNaN(c)); // -> 다시 이해해야함
+            return c;
+        }
+
+        sum(1, 2);
+        sum('aaa', 3);
+        // 전달인자를 1개만 줌
+        // 두번째 전달인자를 주지 않아서 undefined
+        sum(1);
+        sum('a'); // c : a + undefined -> aundefined
+        // 전달인자를 아무것도 안줌
+        sum();
+        // 전달인자를 3개 줌
+        // 많이 줘봤자 두개만 씀
+        sum(1, 2, 5);
+
+        function sum2(a, b) {
+            if (a == undefined) a = 0;
+            if (b == undefined) b = 0;
+
+            return a + b;
+        }
+
+        // 전달인자가 없는 경우 초기값(기본값) 지정
+        function sum3(a = 10, b = 20) {
+            return a + b;
+        }
+        let result2 = sum3();
+        console.log('result2 :', result2); // 결과 : 30
+        console.log('sum3() :', sum(50)); // a : 50 b : 20 -> 결과 : 70
+        console.log('sum3() :', sum(50, 60)) // a : 50 b : 60 -> 결과 : 110
+
+        function sum4() {
+            console.log(arguments); // arguments -> 전달인자 모두를 배열로 받아라
+
+            for (let i = 0; i < arguments.length; i++) {
+                console.log(i, arguments[i]); // ..?
+            }
+        }
+        sum4(1, 2, 3, 4);
+
+        // 마치 splice(2,4, 'a','b','c')
+        // ... -> spread(스프레드) 연산자 / ... + 변수 (배열을 만들어줌)
+        // 지정하지 않는 argumentse들을 배열처리 해줌
+        // 마지막 전달인자에만 적용할 수 있다
+        function sum5(start, count, ...em) {
+            console.log(start, count, em);
+        }
+        sum5(1, 2, 3, 4, 5);
+
+        let aa = [100, 200];
+        console.log(aa);
+
+        // console.log(100,200);
+        console.log(...aa); // 출력만 띄어쓰기로 해서 나오고 배열의 의미를 같음
+
+        // console.log(aa[0], aa[1]);
+        sum(...aa);
+
+        // 글씨를 javascript로 실행시켜줌        
+        let a5 = "console.log(123)"
+        eval(a5); // 결과 : 123 
+        eval("let a" + 6 + '= 60');
+
+        // 변수에도 함수를 담을 수 있다, 심지어 함수도        
+        let sum55 = sum5;
+        sum55(2, 3, 4, 5); // sum55에 sum5 함수를 적용 적용
+
+        function sum5() {
+            console.log('올 뉴 sum5');
+        }
+        sum5();
+
+        // let a = 0 이건 안되지만
+        // var a7 = 0;
+        // var a7 = 5; 이건 됨 위의 함수가 그런 의미
+
+
+        let cLog = console.log;
+        cLog(12345); // cLog에 console.log 함수를 적용
+
+        console.log('before :', typeof sum5);
+        sum5 = 1;   // 함수명도 변수 취급하기 떄문에  
+        // sum5(1,2);  // 이런 경우 sum5는 그냥 1을 담은 변수가 된다 즉 sum5는 더이상 함수가 아님
+        console.log('after :', typeof sum5);
+
+
+        // 전달인자로 함수를 전달할 수 있다
+        // 이런 경우 callback 콜백함수라고 부름
+        function minus(x, y) {
+            console.log('minus 실행');
+            return x - y;
+        }
+
+        function study(cb) {
+            console.log('1~2시간정도 공부함')
+
+            // let remain = cb(10, 2);
+            // console.log('남은 공부시간', remain);
+
+            if (typeof cb == "function") {
+                let remain = cb(10, 2); // minus가 아닌 이유는 minus일 경우에는 고정이여하지만 cb는 바뀔 수 있음
+                console.log('남는 공부시간', remain)
+            }
+        }
+        study(minus);
+
+        // 익명함수를 선언하자마자 변수에다가 넣는 것은 가능하다
+        let fn1 = function () {
+            console.log('fn1 실행');
+        }
+
+        // 예를 들어
+        // 이런 함수가 콜백으로 딱 한번밖에 안쓰이는 경우
+        function times(a, b) {
+            return a * b;
+        }
+        study(times);   // 이렇게 할 수도 있는데
+
+        let times2 = times;
+        study(times2);
+
+        let times3 = function (a, b) {
+            return a * b;
+        }
+        study(times3);
+
+        study(function (a, b) {
+            return a * b;
+        })  // 직접 적는 것
+
+
+
+        // setTimeout : 첫번째 전달인자로 실행할 함수
+        //              두번째 전달인자로 1/1000초의 단위의 시간을 전달
+        // 두번째 전달인자 시간 이후에 callback 실행
+        // 실행하면 예약 번호를 return
+
+        // let idx = setTimeout(fn1, 3*1000); // 3*1000 3초를 뜻함 -> 3초 있다가 fn1을 실행함 즉, 3초 이내에는 절대 실행시키지 않음
+        let idx = setTimeout(function () {
+            console.log('fn1 실행');
+        }, 3 * 1000); // 보통 이렇게 많이 씀
+        // 24*60*60*1000 (86400) -> 하루
+        console.log('idx :', idx);
+        clearTimeout(idx); // 지울 수 있는 방법 (ex. 예약을 취소해줄께!)
+
+        // 지정된 ms(밀리초) 이후마다 반복해서 callback 함수를 실행
+        let idx2 = setInterval(function () {
+            console.log('fn1 실행');
+        }, 1 * 1000);
+
+        setTimeout(function () {
+            console.log('setInterval 종료');
+            clearInterval(idx2);
+        }, 2.5 * 1000);
+
+        console.log(new Date().getTime);
+
+
+
+
+        function test(a, b) {
+            console.log(a, b);
+            return a;
+        }
+        // 화살표 함수 arrow function
+        let test1 = (a, b) => {
+            console.log(a, b);
+            return a + b;
+        }
+        let test2 = (a) => {
+            console.log(a, b);
+            return a + b;
+        }
+        // 전달인자의 '하나'만 있는 경우 
+        // 파라미터의 주변 괄호를 생략할 수 있다
+        let test3 = a => {
+            console.log(a, b);
+            return a + b;
+        }
+        // 전달인자가 없다면 하나가 아니니까 () 생략 불가능
+        let test3_1 = () => {
+
+        }
+
+        let test4 = (a, b) => {
+            return a + b;
+        }
+        // 함수의 실행 블럭 내용이 return문만 있는 경우
+        // return 키워드와 {} 생략할 수 있음
+        //{} 가 없는 경우 return 생략은 필수
+        let test5 = (a, b) => a + b;
+
+        let test6 = a => a * 3;
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>

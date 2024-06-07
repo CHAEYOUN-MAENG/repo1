@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
         let arr = [];
 
         // 두번째 방법
-        let arr2 = new Array(); 
+        let arr2 = new Array();
 
         // 값을 알고 있을 때, 배열 만들기
         arr = [1, 2, 3];
@@ -26,7 +27,7 @@
         console.log("arr[10] :", arr[10]);
 
         console.log(arr); // (11) [1, 20, 3, empty × 7, 5]   11은 크기, 비어있는 칸은 7칸
-        console.log('arr :'+ arr); // 1번을 글씨로 만들어주는 역할을 함
+        console.log('arr :' + arr); // 1번을 글씨로 만들어주는 역할을 함
         console.log('arr :', arr); // 2번은 (, 는 더 구체적으로 보여줄려고 노력함)
 
         // index에 아무거나 넣을 수 있는데 숫자가 아닌 경우에 사용
@@ -37,12 +38,12 @@
 
         // 인덱스가 있는 것만 출력 됨 (인덱스 출력)
         // '참'도 출력
-        for(let i in arr){
+        for (let i in arr) {
             console.log("i index :", i);
         }
 
         // 언어마다 한글의 사이즈를 다르게 표시할 수 있음
-        let str ='휴먼교육센터';
+        let str = '휴먼교육센터';
         console.log('str.length :', str.length); // 문자열도 "접근만" 배열처럼 사용 가능
         console.log('str[0] :', str[0]); // 휴
 
@@ -99,8 +100,8 @@
         console.log('arr3', arr3);
         console.log('arr :', arr); // index 2번부터 3개를 지워라
 
-        // arr : 1, 2, 5 -> 이해 다시
-        arr3 = arr.splice(1); // index 1번부터 지우고 다시 돌려줘라
+        // arr : 1, 2, 5 
+        arr3 = arr.splice(1); // index 1번부터 끝까지 지우고 다시 돌려줘라
         console.log('arr3', arr3);
         console.log('arr :', arr);
 
@@ -186,9 +187,88 @@
         // 요약 (중요한 것)
         // push, unshift, pop, shift, splice
         // join, slice
+
+
+        // forEach : 모든 요소를 순회하면서 전달인자로 받은 함수를 실행해줌 (배열인 경우만 가능)
+        arr = ['a0', 'a1', 'a2', 'a3', 'a4'];
+        arr.forEach(function (a, b, c, d) {
+            console.log("------------")
+            console.log('a :', a); // 첫번째 전달인자 // 배열 중 이번 내용
+            console.log('b :', b); // 두번째 : index
+            console.log('c :', c); // 세번째 : 원본 배열
+            console.log('d :', d); // 이후 전달 없음
+        });
+        arr.forEach(function (value, index, array) {
+            console.log("***********")
+            console.log('value :', value); // 첫번째 전달인자 // 배열 중 이번 내용
+            console.log('index :', index); // 두번째 : index
+            console.log('array :', array); // 세번째 : 원본 배열
+        });
+
+        let result = arr.forEach(function (value) {
+            console.log("***********")
+            console.log('value :', value);
+        });
+        console.log(result)
+
+        //forEach처럼 동작하는데 return을 통해서 새로운 배열을 만들어줌
+        // map의 결과는 항상 배열이다
+        result = arr.map(function (a, b, c, d) {
+            console.log("------------")
+            console.log('a :', a); // 첫번째 전달인자 // 배열 중 이번 내용
+            console.log('b :', b); // 두번째 : index
+            console.log('c :', c); // 세번째 : 원본 배열
+            console.log('d :', d); // 이후 전달 없음
+
+            return a + "!"
+        });
+        console.log(result)
+
+        result = arr.map(function (data) {
+            return data + "!";
+        })
+        .slice(2)
+        console.log(result);
+
+        arr = [8, 4, 2, 8, 4, 7, 8, 5, 2, 3, 6];
+        result = arr.filter(data => {
+            // let is5 = false;
+            // if(data > 5){
+            //     is5 = true;
+            // } else {
+            //     is5 = false;
+            // }
+            // return is5;
+
+            // let is5;
+            // if(data > 5){
+            //     is5 = true;
+            // } else {
+            //     is5 = false;
+            // }
+            // return is5;
+
+            // if(data > 5){
+            //     return true;
+            // }
+            // return false;
+
+            let is5 = false;
+            if (data > 5) {
+                is5 = true;
+            }
+            return is5;
+        })
+        console.log(result);
+
+
+        //Lodash에서 가져와서 javascript에서 지원 안하는 함수를 쓸 수 있음
+
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
