@@ -241,7 +241,7 @@
         })  // 직접 적는 것
 
 
-
+        // 비동기
         // setTimeout : 첫번째 전달인자로 실행할 함수
         //              두번째 전달인자로 1/1000초의 단위의 시간을 전달
         // 두번째 전달인자 시간 이후에 callback 실행
@@ -303,6 +303,35 @@
         let test5 = (a, b) => a + b;
 
         let test6 = a => a * 3;
+
+        study(a => a * 3);
+
+
+
+        // 동기
+        let before = new Date().getTime(); // 시계보기
+        console.log('bafore :', before) // 1717981619380 -> ex. 0
+        
+        let interval = 3*1000;
+        function doit(){
+            console.log("이제실행");
+        }
+
+        // let now = new Date().getTime(); // 10/1000 뒤
+        // let diff = now - before // before와 now 사이 흐른 시간
+        
+        // 최대한 안쪽에다가 선언하는게 좋음
+        let diff = -1;
+        // while이 끝날때까지 다음 줄이 실행되지 않는다 (동기)
+        // setTimeout은 실행되고 다음 줄이 실행된다(비동기)
+        while(diff < interval){
+            let now = new Date().getTime();
+            diff = now - before;
+            // console.log('diff :',diff);
+        }
+        // doit();
+
+        
     </script>
 </head>
 

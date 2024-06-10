@@ -224,12 +224,14 @@
         });
         console.log(result)
 
+        // 람다식
         result = arr.map(function (data) {
             return data + "!";
         })
         .slice(2)
         console.log(result);
 
+        // 참으로만 이루어지거나, 거짓으로 이루어지거나 필터처리를 해줌
         arr = [8, 4, 2, 8, 4, 7, 8, 5, 2, 3, 6];
         result = arr.filter(data => {
             // let is5 = false;
