@@ -1,5 +1,7 @@
 package sec03.exam01;
 
+import java.util.Scanner;
+
 public class Hello {
 	/* 범 위 주 석 */
 	public static void main(String[] args) {
@@ -13,7 +15,7 @@ public class Hello {
 		// 코드 정렬: ctrl + shift + f
 
 		System.out.println("Hello World");
-
+		
 	}
 
 }

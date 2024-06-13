@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #view {
+        /* #view {
             color: red;
             background-color: blue;
         }
 
         [name = rad]:checked{
             transform: scale(2);
-        }
+        } */
     </style>
 </head>
 
@@ -74,13 +74,13 @@
         // 만들어진 DOM과 글씨를 넣을 수 있다
         view.append(h3);
 
-        // // 위치 질문 ?
-        // // 추가, 태그 X 글씨만 추가됨
+
+        // 추가, 태그 X 글씨만 추가됨
         view.append("<strong>글씨</strong>");
-        // // DOM만 넣을 수 있다
+        // DOM만 넣을 수 있다
         view.appendChild(h3);
 
-        // // 자식요소로써 처음에 붙임
+        // 자식요소로써 처음에 붙임
         view.prepend(h3);
 
         // 다음 형제로 추가

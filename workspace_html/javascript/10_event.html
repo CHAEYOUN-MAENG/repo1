@@ -5,6 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #cursor {
+            width: 30px;
+            height: 33px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        #catTower {
+            border: 1px solid red;
+            width: 500px;
+            height: 500px;
+            margin: 50px;
+        }
+    </style>
     <script>
         function btn2click() {
             document.querySelector("#console").innerHTML = "버튼 2 클릭";
@@ -13,6 +30,10 @@
         // let btn1 = document.querySelector("#btn1");
         // console.log("btn1 :", btn1); // null
 
+        // window : 브라우저를 뜻함
+        // window.addEventListener("load",function(){
+        //     // 내부에 적으면 됨 (아래와 동일)
+        // })
         window.onload = function () {
             let btn1 = document.querySelector("#btn1");
             console.log("btn1 :", btn1);
@@ -21,16 +42,16 @@
                 console.log("버튼1 클릭");
                 document.querySelector("#console").innerHTML = "버튼 1 클릭";
                 // #console 내용을 가져와 보이게 한다
-            };
+            }
             // onclick은 click 이벤트가 발생했을때 실행할 함수를 가지고 있는
             // "변수"라서 딱 하나의 함수만 지정할 수 있다
-            btn1.onclick = function () {
-                document.querySelector("#console").innerHTML = "버튼 1 클릭";
-            };
+            // btn1.onclick = function () {
+            //     document.querySelector("#console").innerHTML = "버튼 1 클릭";
+            // };
 
             // 이 방법 추천
             let btn3 = document.querySelector("#btn3");
-            // addEventListener
+            // addEventListener 한정 함수에 전달인자를 넣으면 event내용을 알려줌
             // 첫번째 전달인자 : 이벤트 종류
             // 두번째 전달인자 : 실행할 함수
             btn3.addEventListener('click', function () {
@@ -42,6 +63,7 @@
             }
             // 여러번 추가할 수 있음, 모두 동작함
             btn3.addEventListener('click', btn3click); // 클릭할때 btn3click 함수를 실행해라
+
             // 해당 이벤트 제거
             // 단, 익명함수였다면 제거 불가능
             // btn3.removeEventListener('click', btn3click);
@@ -52,9 +74,9 @@
             })
 
             let id = document.querySelector("#id");
-            id.addEventListener('keydown', function(){
+            id.addEventListener('keydown', function () {
                 console.log('keydown')
-            })   
+            })
             id.addEventListener('keyup', function (event) {
                 console.log('keyup', event.keyCode); // 작성한 것에 대한 모든 event가 출력, keycode는 키마다 다 다름
                 // 엔터키
@@ -85,15 +107,88 @@
                 let password = document.querySelector("#pw").value;
                 console.log('아이디 :', text);
                 console.log('비밀번호 :', password);
-                if (password == '1234' && text =="admin"){
+                if (password == '1234' && text == "admin") {
                     console.log("로그인 되었습니다")
-                } else if(text =="" && password ==""){
+                } else if (text == "" && password == "") {
                     console.log('..는 필수입니다')
-                } else{
+                } else {
                     console.log('아이디 또는 비밀번호를 확인하세요')
                 }
                 // document.querySelector("#id").value = "admin";
             })
+
+            // mouse evant
+            let newbtn3 = document.querySelector("#btn3");
+            newbtn3.addEventListener('mouseover', function () {
+                console.log('마우스 들어왔음');
+                newbtn3.style.fontSize = '20px';
+
+            });
+            newbtn3.addEventListener('mouseout', function () {
+                console.log('마우스 나갔음');
+                newbtn3.style.fontSize = '14px';
+            });
+
+            // 문서 전체 (즉, 앞에 window가 생략됬다고 생각해도 됨) -> 앞에 아무것도 안쓰면!
+            addEventListener('mousemove', function () {
+                // console.log('마우스 움직임')
+            })
+
+            let catTower = document.querySelector("#catTower")
+            catTower.addEventListener('mousemove', function (evt) {
+                // console.log('마우스 움직임')
+                // console.log(evt.x, evt.clientX); // 스크롤이 내려왔더라도 지금 보이는 왼쪽 위 기준
+                // console.log(evt.pageX); // 스크롤에 관계없이 문서 최상단 기준
+                // console.log(evt.offsetX) // 이벤트가 적용된 대상의 좌상단 기준
+
+                // event.pageX를 left
+                // event.pageY를 top
+                // display를 보이게 해주기
+
+                let cursor = document.querySelector('#cursor');
+                cursor.style.left = evt.pageX + 'px';
+                cursor.style.top = evt.pageY + 'px';
+                cursor.style.display = "block"; // 고양이 보이고 안보이고 차이
+            });
+
+            let yy = document.querySelector('#id');
+            yy.addEventListener("focus", function () {
+                console.log('아이디에 포커스 맞춰짐');
+            });
+            yy.addEventListener("blur", function () {
+                console.log('아이디에 포커스 잃음');
+            });
+
+
+
+            // 대부분의 경우 this는 window를 뜻함
+            // addEventListener에서는 event가 발생한 것을 뜻함
+            console.log(this);
+
+            document.querySelector('#parent').addEventListener('click', function (event) {
+                console.log('event.target :', event.target); // 이벤트가 발생된 DOM을 뜻함
+                console.log('event.currentTarget :', event.currentTarget); // 이벤트가 적용된 DOM을 뜻함 (최초원인지) -> #parent
+                console.log('this :', this); // === event.currentTarge
+            }); // true를 하는 순간 캡쳐링 단계로 (부모에서 자식방향)
+            // 부모는 부모땅만있지만 자식이 뚫고 들어가서 자식은 부모까지 영향을 받음
+
+            document.querySelector("#child1").addEventListener('click', function (event) {
+                event.stopPropagation(); // 부모로 전달되는 이벤트를 중지한다 -> 부모가 반응하지 않음(전파방지)
+                console.log('자식 1 클릭'); // 부모까지 영향을 줌 (3개 뜸) -> 버블링 때문에
+            })
+
+            document.querySelector("form").addEventListener("submit", function (event) {
+                event.preventDefault(); // 원래 html 고유 기능을 없애줌
+                let value = document.querySelector('#keyword').value;
+                console.log(value, value.length);
+                if (value.length < 2) {
+                    console.log('두글자 이상 입력');
+                } else {
+                    console.log('naver 검색');
+                    document.querySelector("#form").submit();
+                }
+            }); 
+
         }
     </script>
 </head>
@@ -110,5 +205,22 @@
         <input type="button" id="login" value="로그인">
     </div>
     <div id="console"></div>
+    <img id="cursor"
+        src="https://cdn.discordapp.com/attachments/1237222207395205138/1250271715414773780/image.png?ex=666a55c5&is=66690445&hm=db0a7d03382cf6c77bf7b73d4ebf377622d4bdcb293fa8f51512be88965cb450&">
+    <div id="catTower">
+
+    </div>
+
+    <div id="parent">
+        부모
+        <div id="child1">자식1</div>
+        <div id="child2">자식2</div>
+    </div>
+
+    <form id="form" action="http://search.naver.com/search.naver">
+        <input id="keyword" type="text" name="query">
+        <input type="submit" value="네이버 검색">
+    </form>
 </body>
+
 </html>
