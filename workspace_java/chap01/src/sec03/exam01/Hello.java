@@ -16,6 +16,12 @@ public class Hello {
 
 		System.out.println("Hello World");
 		
+		int a = 2;
+		a = a++ + a;
+		System.out.println(a);
+		
+		
+		
 	}
 
 }
