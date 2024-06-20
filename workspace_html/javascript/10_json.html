@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 배열 선언만 하는 방법
+        let array = [];
+
+        // json 선언만 하는 방법
+        let json = {};
+
+        // 값을 미리 알고 있는 경우의 json 사용법
+        json = {
+            "key": "value",
+            "k": "v",
+            k1: "v1", // 키값에는 "" 을 안써도 된다 (다만 습관처럼 쓰는게 좋음)
+            "num": 123,
+            "child": {
+                "child_1": "value-1"
+            },
+            "a1": array, // [] 써도 배열임
+            "fn": function () {
+                console.log('익명함수 실행');
+            }
+        }
+
+        // 꺼내는 방법
+        console.log(json) // 순서는 중요하지 않음
+        console.log("" + json) // 문자형식으로 출력
+        console.log("json.k :", json.k) // 키를 그냥 써서 값을 출력
+
+        console.log('json["k"] :', json["k"]); // 배열처럼 접근, 대괄호 안에 문자가 들어간다는 거에 착안해서 변수에 담아서 사용 가능
+        let 숫자 = "num";
+        console.log(json[숫자]); // 숫자라는 변수에는 num이 들어가있고 json 안에 num은 123이 들어있기 때문에
+
+        // let a = json.child; 
+        // console.log(a.child_1);
+        console.log(json.child.child_1);
+
+        // json['child']['child_1']; // 마치 2차원 배열처럼
+        console.log(json['child']['child_1']);
+
+        json.a1.push(123); // json.a1 이 배열이니까, 배열에는 push/ pop이 가능하니까
+        json.a1.push(123);
+        console.log(json.a1);
+
+        // let a = function () {
+        //     console.log('익명함수 실행');
+        // }
+        // a(); -> ()이 함수 실행
+        json.fn(); // json이 가지고 있는 함수를 실행하는 방법 
+
+        // 추가하는 방법
+        json.a = "b"; // b라는 값을 가진 a변수가 json 안에 생김
+        json.a = "b1"; // 덮어씀
+        json["c"] = "d";
+        console.log(json);
+
+        // 키 삭제 방법
+        delete json.key;
+        console.log(json);
+
+        console.log(json.human); // 없으니까 undefined == console.log(abc);
+        
+        // 모든 key를 가져오는 방법
+        let keys = Object.keys(json); // json의 key값만 배열로 만들어짐
+        console.log('배열 keys', keys);
+        // json[keys[0]];
+        // json[keys[1]];
+        for (let i=0; i<keys.length; i++){
+            console.log("키 :", keys[i], "value :", json[keys[i]]); // json[키값] = 키값에 대한 value값 출력
+        }
+
+        // json을 문자열로 변환 (글씨로 변환)
+        let strJson = JSON.stringify(json);
+        console.log(strJson); 
+
+        // json 문법으로 적힌 문자열을 json 객체로 변환
+        // json으로 이루어진 배열도 변환 가능
+        let json2 = JSON.parse(strJson);
+        console.log(json2);
+
+        let aJson = [];
+        let json3 = {
+            "k1" : "v1"
+        };
+        let json4 = {
+            "k2" : "v2"
+        };
+
+        aJson.push(json3);
+        aJson.push(json4);
+        console.log(aJson); // 배열에 json배열 추가
+
+        strJson = JSON.stringify(aJson);
+        console.log(strJson); // json 객체를 문자로 변환
+
+        json2 = JSON.parse(strJson);
+        console.log(json2); // 문자를 json 객체로 변환
+
+        // json이나 json으로만 이루어진 배열이 아닌 경우
+        // {} 이거나 [{}]의 형식이 아닌 경우
+        // parse에서 오류남
+        // JSON.parse("abc")
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

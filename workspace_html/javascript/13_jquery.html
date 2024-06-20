@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <!-- jquery 언어를 사용할 수 있다(설치한다 혹은 로딩한다 (cdn)) -->
+    <script>
+        // $(); == jQuery();
+        $(
+            function () {
+                // 페이지 로딩이 끝나면 실행됨
+                bind();
+                init();
+            }
+        );
+
+        function init() {
+            // $() 함수에 전달인자로 글씨를 주게되면 css 선택자 (배열)로 인식 -> querySelectorAll 처럼 동작
+            // 그 글씨가 만약 tag라면 createElement 해줌
+            let list_h1 = $('h1');
+            console.log(list_h1); // list_h1 : jQuery 배열 객체
+            console.log(list_h1[0]); // 순수한 Dom을 뽑아내는 javascript
+
+            // querySelectorAll로 가져온 배열을 반복하면서
+            // innerText = "hello"를 실행한 것과 같다
+            // let _list_h1 = document.querySelectorAll("h1");
+            // for(let i=0; i<_list_h1.length; i++){
+            //     _list_h1[i].innerText = "hello"
+            // }
+            $('h1').text("hello"); // text 함수는 innerText
+            $('h1').html("<a href='javascript:void(0)'> hello </a>"); // html 함수는 innerHTML
+
+            // 추가할때
+            // console.log($('parent')) // 한개짜리 배열로 출력됨
+            $('#parent').append('<div>자식2</div>');
+            $('#parent').prepend('<div>자식3</div>');
+            $('#parent').append($('h1')[0]); //hello -> h1배열의 0번쨰를 불러온다
+
+            // 지울때
+            // 본인은 남아있고 자식은 지운다, 단 형제는 지워주지 않는다
+            $('#parent')[0].innerHTML = ''; // 부모 껍데기만 남아있고 속도 그냥 다 사라진다
+            // $('#parent').html("");       
+            // $('#parent').empty();
+
+            // 본인까지 다 지워버린다
+            // // $('#parent')[0].remove();
+            // $('#parent').remove();
+
+            // class 조작
+            $('#chk').addClass('c1')
+            $('#chk').addClass('c1')
+            $('#chk').addClass('c2')
+            $('#chk').removeClass('c2')
+            $('#chk').toggleClass('c2') // 있으면 지워주고 없으면 넣어주고 (아래의 if문과 동일)
+
+            if ($('#chk').hasClass('c1')) { //c1라는 클래스를 가지고 있다면
+                console.log('c1 있음')
+                $('#chk').removeClass('c1') // c1을 지워버리고
+            } else {
+                $('#chk').addClass('c1') // 없다면 넣어줘
+            }
+
+            // 속성 조작
+            // attr 
+            // 전달인자가 하나인 경우: getAttribute
+            // 전달인자가 두개인 경우: setAttribute
+            $('#chk').attr('data-human');
+            console.log($('#chk').attr('data-human')); // data-human 속성의 속성값이 출력
+            $('#chk').attr('data-human2','값2');
+            $('#chk').removeAttr('data-human'); 
+            // 동일한 속성명이면 덮어쓴다
+            console.log($('#chk').data('human2'));
+            
+            $('#chk').data('human3','숨긴데이터');
+            console.log($('#chk').data('human3'));
+
+            console.log($('#chk').prop("checked")); // dom.checked와 동일
+            $('#chk').prop("checked",false); // check 끄는법
+
+            // console.log($('#input')[0].value);
+            console.log($('#input').val());
+            $('#input').val('바꾼값'); //html에서 확인
+
+            $('#input').css('border','1px solid red');
+
+            // show hide (display-none, display)
+            $('#input').hide();
+            $('#input').show();
+
+            // 자식 요소 중에서 찾기
+            $('#parent').find('.c');
+
+            // 부모로 올라가기
+            $('#parent').parent();
+
+            // css 선택자 조상 중에 가장 가까운 것을 찾기
+            $('#parent').parents('body');
+
+            $('#btn1').trigger('click');
+
+        }
+
+        function bind(){
+
+            // $('.btn').on('click.a',function(event){
+            //     console.log(this); // event.target 적어도 됨
+            // })
+            // $('.btn').on('click.b',function(event){
+            //     console.log(this); // event.target 적어도 됨
+            // })
+            $('#btn1').off('click.a').on('click',function(event){
+                console.log(this); // event.target 적어도 됨
+            }) 
+            // .off는 그동안 클릭이벤트를 다 지우고 그 뒤에 추가한 클릭이벤트 한번만 추가가 됨 (.a 처럼 특정한것만 지울수도 있음)
+        }
+    </script>
+</head>
+
+<body>
+    <h1>첫번째</h1>
+    <h1>두번째</h1>
+    <h1>세번째</h1>
+    <div id="parent">
+        부모
+        <div>자식</div>
+    </div>
+
+    <input type="checkbox" id="chk" value="val1" data-human="값" checked="checked">
+    <br>
+    <input type="text" id="input" value="미리 완성">
+    <br>
+    <input type="button" class="btn" id="btn1" value="버튼1">
+    <input type="button" class="btn" value="버튼2">
+</body>
+
+</html>

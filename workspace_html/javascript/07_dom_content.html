@@ -64,7 +64,7 @@
         cap.innerHTML += "<h2>h2</h2>" // h2를 추가하는 방법
 
         // <h3 id = 'subtitle'><h3>
-        let h3 = document.createElement("h3");
+        let h3 = document.createElement("h3"); // h3 라는 태그를 만듬
         h3.setAttribute('id', 'subtitle');
         h3.setAttribute('style', 'color: red;');
         h3.innerText = "나중에 추가한 h3";
@@ -75,7 +75,7 @@
         view.append(h3);
 
 
-        // 추가, 태그 X 글씨만 추가됨
+        // 추가, 태그 X dom으로 감싸진 글씨만 추가됨
         view.append("<strong>글씨</strong>");
         // DOM만 넣을 수 있다
         view.appendChild(h3);

@@ -177,7 +177,7 @@
                 console.log('자식 1 클릭'); // 부모까지 영향을 줌 (3개 뜸) -> 버블링 때문에
             })
 
-            document.querySelector("form").addEventListener("submit", function (event) {
+            document.querySelector("#form").addEventListener("submit", function (event) {
                 event.preventDefault(); // 원래 html 고유 기능을 없애줌
                 let value = document.querySelector('#keyword').value;
                 console.log(value, value.length);
@@ -196,7 +196,7 @@
             // for(let i=0; i<배열.length; i++)
             // for(let index in 배열)
             // for(let item of 배열)
-            // 배열. forEach (function(item){})
+            // 배열. forEach (function(item){}) -> 다시한번 설명 필요
             for(let dom of chks){
                 // 모든 요소의 프로퍼티 중에서 check상태 점검
                 if(dom.checked/*==true*/){
