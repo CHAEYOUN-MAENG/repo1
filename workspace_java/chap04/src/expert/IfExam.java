@@ -1,5 +1,7 @@
 package expert;
 
+import java.util.Scanner;
+
 public class IfExam {
 
 	public static void main(String[] args) {
@@ -61,10 +63,102 @@ public class IfExam {
 		if (a > 3 && a < 5) {
 
 		}
+
+		double rand = Math.random();
+		double 답1 = rand * 100.0;
+		// 0 <= rand < 1.0
+		// (int)답1
+
+		// 5 ~ 7까지 랜덤으로 뽑고 싶을때
+		// 5 + (0 ~ 2)
+//		int a02 = (int)(rand * 3);
+		int 결과1 = (int) (Math.random() * 3) + 5;
+		int 결과2 = (int) (Math.random() * 389545) % 3 + 5; // 0 ~ 9999
+
+		// 로또번호 6개를 뽑는 것
+		double lotto = Math.random();
+
+		int lotto1 = (int) (lotto * 45) + 1; // 1 ~ 45
+
+		double lotto2 = Math.random();
+		int lotto3 = (int) (lotto2 * 45) + 1;
+
+		double lotto4 = Math.random();
+		int lotto5 = (int) (lotto4 * 45) + 1;
+
+		double lotto6 = Math.random();
+		int lotto7 = (int) (lotto6 * 45) + 1;
+
+		double lotto8 = Math.random();
+		int lotto9 = (int) (lotto8 * 45) + 1;
+
+		double lotto10 = Math.random();
+		int lotto11 = (int) (lotto10 * 45) + 1;
+
+		System.out.println(lotto1);
+		System.out.println(lotto3);
+		System.out.println(lotto5);
+		System.out.println(lotto7);
+		System.out.println(lotto9);
+		System.out.println(lotto11);
+
+		// 내 주머니에 만 원 있음
+		// 술을 마시고 싶어요
+		// 소주 : 5000
+		// 과자 : 2000
+		// 컵라면 : 1500
+		// 족발 : 35000
+
+		// 온도에 따른 if문
+//		Scanner scan = new Scanner(System.in);
+//		int weather = scan.nextInt();
+//		
+//		if (weather > 1) {
+//			System.out.println("영상입니다");
+//		} else if (weather <=0) {
+//			System.out.println("영하입니다");
+//		}
+
+		// scan을 받아서(숫자)
+		// 2000과 3000 사이면 맞습니다 (그리고)
+		// 아니면 틀립니다
+		Scanner num = new Scanner(System.in);
+		int number = num.nextInt();
+
+//		if (number >= 2000 && number <= 3000) {
+//			System.out.println("2000과 3000 사이입니다");
+//		} else {
+//			System.out.println("2000과 3000 사이가 아닙니다");
+//		}
+
+		// 3월 ~ 5월까지 봄
+		// 6월 ~ 8월까지 여름
+		// 9월 ~ 11월까지 가을
+		// 12월 ~ 2월까지 겨울
+
+//		if (number >= 3 && number <= 5) {
+//			System.out.println("봄입니다");
+//		} else if (number >= 6 && number <= 8) {
+//			System.out.println("여름입니다");
+//		} else if (number >= 9 && number <= 11) {
+//			System.out.println("가을입니다");
+//		} else if ((number == 12) || (number >= 1 && number <= 2)) {
+//			System.out.println("겨울입니다");
+//		}
 		
-		//랜덤실습부터
+		if ((number >= 1 && number <= 2) || number == 12) {
+			System.out.println("겨울");
+		} else if (number <= 5) {
+			System.out.println("봄");
+		} else if (number <= 8 ) {
+			System.out.println("여름");
+		} else if (number <= 11) {
+			System.out.println("가을");
+		}
 		
 		
+		
+
 	}
 
 }
