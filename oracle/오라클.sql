@@ -156,25 +156,28 @@ select rpad(substr('210612-3123456', 1, 8), length('210612-3123456'),'*')from du
 -- 정답의 예 : WARD -> WA**, MARTIN -> MA****
 -- 쉬운버전 : 앞 두글자 + '***'
 select ename, substr(ename, 1, 2) || rpad(substr(ename, 3, 100), length(ename), '*') from emp;
+select ename, rpad(substr(ename, 3, 100), length(ename), '*') from emp;
 select ename, rpad(substr(ename, 1, 2), length(ename),'*') from emp;
 
 -- 문제3
 -- 앞글자 하나만
 -- WARD -> *ARD, MARTIN -> *ARTIN
 select ename, lpad(substr(ename, 2, length(ename)), length(ename),'*') from emp;
+select ename, '*' || substr(ename, 2, length(ename))from emp;
 
 -- 문제4
 -- 두번째 글씨만 *
 -- WARD -> W*RD, MARTIN -> M*RTIN
 select ename, replace(ename, (substr(ename, 2, 1)), '*') from emp; -- 동일한 문자열까지 *로 바뀜
 select ename, substr(ename, 1, 1) || '*' || substr(ename, (length(ename)/2 + 1), 100) from emp;
+select ename, substr(ename, (length(ename)/2 + 1), 100) from emp;
 
 -- 문제5
 -- 가운데 글씨만 *
 -- MARTIN -> MA*TIN, SCOTT -> SC*TT
 select ename, substr(ename, length(ename)/2 + 1, 1) from emp;
-select ename, Rpad(substr(ename, 1, (length(ename)/2)), length(ename)/2 + 1 ,'*')
-                || substr(ename, length(ename)/2 + 2, 2) from emp;
+select ename, rpad(substr(ename, 1, (length(ename)/2)), length(ename)/2 + 1 ,'*')
+                || substr(ename, length(ename)/2 + 2) from emp;
 
 select RPAD(substr(ename, 1, (length(ename)/2-0.5)), 
             length(ename)/2+0.5, '*') 
@@ -186,6 +189,136 @@ select substr(ename, length(ename)/2+1.5) from emp;
 
 select rpad(substr(ename, 1, (length(ename)/2-0.5)), length(ename)/2+0.5,'*') 
         || substr(ename, length(ename)/2+1.5) from emp;
+        
+
+select trunc(1234.5678) from dual; -- 소수점 밑으로 다 버림
+select trunc(1234.5678,2) from dual; -- 버릴 자리 지정해서 버림
+select trunc(1234.5678,-2) from dual; -- 소수점 기준으로 앞 두자리 버림
+
+-- ceil 가장 가까운 큰 정수, floor 가장 가까운 작은 정수
+select ceil(3.14), floor(3.14), ceil(-3.14), floor(-3.14) from dual; 
+
+-- 현재 오라클 pc의 시간 년/월/일 출력
+-- 영국 0시 기준 한국 +9시
+-- 날짜 정보 중 일부만 select로 표시됨
+select sysdate, sysdate+1, sysdate-1 from dual;       
+select sysdate, add_months(sysdate, 3) from dual;   
+
+-- 컬럼에 +를 적으면 모두 숫자로 변경해서 적용함
+-- || 숫자도 문자로 적용 즉, || 뒤에 문자/ + 뒤에 숫자
+
+-- 9시간 전이라는 것을 꼭 고려!
+select to_char(sysdate+(9/24), 'yyyy"년"mm/dd hh24:mi:ss') from dual; -- 한글은 ""
+
+select sysdate - to_date('2024-05-07', 'yyyy-mm-dd') from dual;
+select to_char(to_date('2024-05-07', 'yyyy-mm-dd'), 'yyyy"년"mm/dd hh24:mi:ss') from dual;
+-- 날짜만 넣게 되면 시간은 0시 0분 0초가 됨
+
+select comm, nvl(comm, -1) from emp; -- null 일 경우 지정한 데이터로 반환
+select comm, sal, sal + comm, sal+nvl(comm,0) from emp; -- 원래 null은 계산이 안됨
+select * from emp where comm = 0 or comm is null;
+-- null인 경우 0으로 바뀌고 그 값이 0 이라면 참이라 출력 (where은 조건만 주고 select * 은 원본 그대로 출력)
+select * from emp where nvl(comm,0) = 0;
+
+-- 숫자는 숫자와, 문자는 문자와 타입을 동일하게 맞춰줘야함
+select 
+    case 
+        when comm is null then 'N/A' 
+        else to_char(comm) 
+    end 
+from emp; -- ''||comm (문자로 바꿈)
+
+select 
+    case 
+        when comm is null then 0 
+        else comm 
+    end 
+from emp;
+
+
+-- 문제1
+select empno, rpad(substr(empno,1,2),length(empno),'*') as MASKING_EMPNO,
+    ename, rpad(substr(ename,1,1),length(ename),'*') as MASKING_ENAME
+    from emp;
+
+-- 문제2
+select empno, ename, sal, trunc(sal/21.5, 2) as DAY_PAY, 
+    round(trunc((sal/21.5)/8,2),1) as TIME_PAY1,
+    round((sal/21.5)/8, 1) as TIME_PAY2 from emp; -- 더 좋은 방법
+
+-- 문제3
+select empno, ename, hiredate, 
+    to_char(add_months(hiredate, 3),'yyyy-mm-dd') as R_JOB1, 
+    -- next day 는 일요일부터 토요일까지 (1~7)
+    to_char(next_day(add_months(hiredate, 3), 2), 'yyyy-mm-dd') as r_job2,
+    nvl(to_char(comm),'N/A') as comm from emp;
+    
+-- 문제4
+select empno, ename,
+    case
+        when mgr is null then ' '
+        else to_char(mgr) 
+    end as mgr,    
+    case 
+        when to_char(mgr) is null then '0000'
+        when substr(mgr,1,2) = '75' then '5555'
+        when substr(mgr,1,2) = '76' then '6666'
+        when substr(mgr,1,2) = '77' then '7777'
+        when substr(mgr,1,2) = '78' then '8888'
+        else to_char(mgr)
+    end as CHG_mgr from emp;
+
+
+-- count처럼 null은 제외됨
+-- count는 *를 많이 씀
+select sum(sal) from emp;
+select count(sal), count(*), count(comm) from emp;
+select count(*) from emp where ename like '%A%';
+
+select max(sal), max(ename), min(hiredate), min(comm), avg(sal) from emp;  
+
+select * from emp;
+select sum(sal), round(avg(sal),1) from emp where deptno = 10 union all
+select sum(sal), round(avg(sal),1) from emp where deptno = 20 union all
+select sum(sal), round(avg(sal),1) from emp where deptno = 30;
+
+-- distinct처럼 중복을 제거, 분류 해줌
+-- select group by 한 것이나 다중행 함수(집계함수)(ex.sum)만 올 수 있음 
+select deptno from emp group by deptno;
+select deptno, avg(sal), sum(sal), count(*) from emp group by deptno;    
+-- 중복된 것이 없음 (count(*) 보면 알 수 있음)
+select deptno, empno, sum(sal), count(*) from emp group by deptno, empno;  
+-- group by, select 둘다 포함되어있어야함
+select deptno, job, count(*) from emp group by deptno, job order by deptno;
+
+-- HAVING: group by에서만 사용, 집계함수를 조건으로 걸고 싶을때 사용
+select deptno, job, count(*) from emp 
+-- where count(*) > 2
+group by deptno, job order by deptno;
+
+select deptno, job, count(*) from emp group by deptno, job;
+select deptno, job, avg(sal) from emp group by deptno, job
+    having count(*) >= 2 order by deptno;
+
+
+-- 문제1
+select deptno, trunc(avg(sal)), max(sal), min(sal), count(*) from emp group by deptno;
+
+-- 문제2
+select job, count(*) from emp group by job having count(*) >= 3;
+
+-- 실습
+select rpad(substr('210612-3123456', 1, 8), length('210612-3123456'),'*') from dual;
+select rpad(substr('210612-3123456', 1, 2), length('210612'),'*') 
+    || '-' || '*******' from dual;
+
+
+
+
+
+        
+        
+        
 
 
 
