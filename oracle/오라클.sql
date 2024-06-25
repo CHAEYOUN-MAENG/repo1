@@ -302,7 +302,7 @@ select deptno, job, avg(sal) from emp group by deptno, job
 
 
 -- 문제1
-select deptno, trunc(avg(sal)), max(sal), min(sal), count(*) from emp group by deptno;
+select deptno, floor(avg(sal)), max(sal), min(sal), count(*) from emp group by deptno;
 
 -- 문제2
 select job, count(*) from emp group by job having count(*) >= 3;
@@ -313,10 +313,136 @@ select rpad(substr('210612-3123456', 1, 2), length('210612'),'*')
     || '-' || '*******' from dual;
 
 
+select * from dept; -- 부서번호를 통해 emp와 dept table이 관계가 있음
 
-
-
+/*5*/ select job, count(*) cnt /*1*/ from emp 
+    /*2*/ where sal > 1000 /*3*/ group by job /*4*/ having count(*) >=3 
+        /*6*/ order by cnt desc;
         
+select * from emp, dept order by empno;   -- 14 * 4 (모든 조합을 다 보여줌)
+
+select emp.ename, dept.loc, emp.deptno /* emp.loc(emp에는 loc가 없음), deptno(중복) */ 
+    from emp, dept where emp.deptno = dept.deptno -- 등가조인
+        order by empno; 
+-- 테이블 두개 이상 조회할때 관계를 꼭 알려줘야 원하는 정보가 출력 (전체 테이블 수 - 1개의 조건)
+
+-- table에다가 별칭줄때는 as를 주면 안됨, 대소문자 가리지 않음
+select * from eMp E, dept d where E.deptno = d.deptno; -- 별칭 준 후, emp.deptno는 이제 안됨
+
+-- * 와 컬럼을 같이 쓰는 경우, *에 table을 지정해줘야 한다
+-- 실무에서는 *를 잘 사용하지않고 컬럼명을 나열해서 작성함
+select ename, e.* from eMp E, dept d where E.deptno = d.deptno;
+
+select * from salgrade;
+
+select * from emp E, salgrade S where E.sal >= s.losal and e.sal <= s.hisal;
+
+select * from emp;
+-- null인 데이터는 일단 조인 X, ex. king(mgr = null)의 상사는 없음
+select e1.empno, e1.ename, e1.mgr, e2.empno, e2.ename from emp E1, emp E2 
+    where e1.mgr = e2.empno; -- mgr이 상사코드, empno 상사코드를 받아 조인 (자체조인)
+
+-- emp 테이블에 dept를 조인해라    
+select * from emp join dept using (deptno); -- using에 둘 다 같은 컬럼명이 있는 경우만 사용 
+-- select * from emp e1, emp e2 where e1.deptno = e2.deptno 
+
+select * from emp join dept on (emp.deptno = dept.deptno);
+
+select * from emp e1 join emp e2 on (e1.mgr = e2.empno);
+/* select e1.empno, e1.ename, e1.mgr, e2.empno, e2.ename from emp E1, emp E2 
+    where e1.mgr = e2.empno; */
+    
+-- king이 출력되냐 안되냐 즉, null값이 출력되냐 안되냐라는 뜻 
+-- left outer join 왼쪽테이블(e1)은 null이던 아니던 무조건 출력
+select * from emp e1 left outer join emp e2 on (e1.mgr = e2.empno);  
+select * from emp e1 right outer join emp e2 on (e1.mgr = e2.empno);  
+
+-- quiz 1 (2개 조인)
+-- empno, ename, dname, loc 출력, 14줄
+select e.empno, e.ename, d.dname, d.loc from emp E, dept d 
+    where e.deptno = d.deptno;
+    
+select e.empno, e.ename, d.dname, d.loc from emp E join dept d using(deptno);
+    
+-- quiz 2 (3개 조인)
+-- 사번, 이름, 부서명, 급여등급을 출력, 14줄
+select e.empno, e.ename, d.dname, s.grade from emp e, dept d, salgrade s
+    where e.deptno = d.deptno and (E.sal >= s.losal and e.sal <= s.hisal);
+
+-- emp 와 dept는 조인으로 사용 emp 와 salgrade는 where로 사용
+select e.empno, e.ename, d.dname from salgrade s, emp e 
+    join dept d using(deptno) where(E.sal >= s.losal and e.sal <= s.hisal);
+    
+select e.empno, e.ename, d.dname, s.grade from emp e
+    left outer join dept d on (e.deptno = d.deptno)
+    left outer join salgrade s on (E.sal >= s.losal and e.sal <= s.hisal);
+    
+ select * from emp;
+ select * from dept;
+ select * from salgrade;
+ 
+-- quiz 3 
+-- 상사보다 월급이 높은 사원의 이름, 급여, 상사 이름, 상사 급여
+select e1.ename, e1.sal, d.dname , e2.ename, e2.sal from emp e1, emp e2, dept d
+    where (e1.mgr = e2.empno) and (e1.sal > e2.sal) and (e1.deptno = d.deptno);
+    
+-- 문제1
+select e.deptno, d.dname, e.empno, e.ename, e.sal from emp e, dept d 
+    where (e.sal > 2000) and (e.deptno = d.deptno) order by deptno;
+    
+-- 문제2
+select e.deptno, d.dname, floor(avg(e.sal)), max(e.sal), min(e.sal), count(*) 
+    from emp e, dept d where (e.deptno = d. deptno) group by e.deptno, d.dname;
+    
+select e.deptno, d.dname, floor(avg(e.sal)), max(e.sal), min(e.sal), count(*)
+    from emp e left outer join dept d on (e.deptno = d.deptno) group by e.deptno, d.dname;
+    
+-- 문제3
+select d.deptno, d.dname, e.empno, e.ename, e.job, e.sal from emp e, dept d
+    where e.deptno = d.deptno order by deptno;
+
+select d.deptno, d.dname, e.empno, e.ename, e.job, e.sal from emp e
+    right outer join dept d on (e.deptno = d.deptno); -- 오른쪽 외부조인
+    
+select d.deptno, d.dname, e.empno, e.ename, e.job, e.sal from dept d
+    left outer join emp e on (e.deptno = d.deptno) order by d.deptno; -- 왼쪽 외부조인
+    
+-- 문제4
+select d.deptno, d.dname, e1.empno, e1.ename, e1.mgr, e1.sal, 
+    e2.deptno, s.losal, s.hisal, s.grade, e2.empno, e2.ename 
+        from emp e1, emp e2, dept d, salgrade s 
+            where (e1.mgr = e2.empno) and (e1.deptno = d.deptno) 
+                and (e1.sal >= s.losal and e1.sal <= s.hisal) order by d.deptno;
+                
+select d.deptno, d.dname, e1.empno, e1.ename, e1.mgr, e1.sal, 
+    e2.deptno, s.losal, s.hisal, s.grade, e2.empno, e2.ename from dept d
+        left outer join emp e1 on (e1.deptno = d.deptno) 
+        left outer join emp e2 on (e1.mgr = e2.empno)
+        left outer join salgrade s on (e1.sal >= s.losal and e1.sal <= s.hisal) order by d.deptno, e1.empno;
+    
+-- 서브쿼리
+select sal from emp where ename = 'JONES';    
+select * from emp where sal > 2975;
+select * from emp where sal > (select sal from emp where ename = 'JONES');
+
+-- 단일행 서브쿼리
+select avg(sal) from emp;
+select * from emp where sal > (select avg(sal) from emp);
+
+select sal from emp where ename='BLAKE';
+select * from emp where sal > (select sal from emp where ename='BLAKE');
+
+select job from emp where ename='JONES';
+select * from emp where job = (select job from emp where ename='JONES');
+
+-- 다중행 서브쿼리
+select max(sal) from emp group by deptno;
+select * from emp where sal in (select max(sal) from emp group by deptno);
+
+select max(sal) from emp where deptno = 30;
+select * from emp where sal > (select max(sal) from emp where deptno = 30) order by deptno desc;
+
+
         
         
 
