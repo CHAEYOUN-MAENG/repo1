@@ -77,7 +77,6 @@ public class IfExam {
 
 		// 로또번호 6개를 뽑는 것
 		double lotto = Math.random();
-
 		int lotto1 = (int) (lotto * 45) + 1; // 1 ~ 45
 
 		double lotto2 = Math.random();
@@ -110,20 +109,20 @@ public class IfExam {
 		// 족발 : 35000
 
 		// 온도에 따른 if문
-//		Scanner scan = new Scanner(System.in);
-//		int weather = scan.nextInt();
-//		
-//		if (weather > 1) {
-//			System.out.println("영상입니다");
-//		} else if (weather <=0) {
-//			System.out.println("영하입니다");
-//		}
+		Scanner scan = new Scanner(System.in);
+		int weather = scan.nextInt();
+
+		if (weather > 1) {
+			System.out.println("영상 " + weather + "도 입니다");
+		} else if (weather <= 0) {
+			System.out.println("영하 " + (weather * (-1)) + "도 입니다");
+		}
 
 		// scan을 받아서(숫자)
 		// 2000과 3000 사이면 맞습니다 (그리고)
 		// 아니면 틀립니다
-		Scanner num = new Scanner(System.in);
-		int number = num.nextInt();
+//		Scanner num = new Scanner(System.in);
+//		int number = num.nextInt();
 
 //		if (number >= 2000 && number <= 3000) {
 //			System.out.println("2000과 3000 사이입니다");
@@ -145,19 +144,16 @@ public class IfExam {
 //		} else if ((number == 12) || (number >= 1 && number <= 2)) {
 //			System.out.println("겨울입니다");
 //		}
-		
-		if ((number >= 1 && number <= 2) || number == 12) {
-			System.out.println("겨울");
-		} else if (number <= 5) {
-			System.out.println("봄");
-		} else if (number <= 8 ) {
-			System.out.println("여름");
-		} else if (number <= 11) {
-			System.out.println("가을");
-		}
-		
-		
-		
+
+//		if ((number >= 1 && number <= 2) || number == 12) {
+//			System.out.println("겨울");
+//		} else if (number <= 5) {
+//			System.out.println("봄");
+//		} else if (number <= 8 ) {
+//			System.out.println("여름");
+//		} else if (number <= 11) {
+//			System.out.println("가을");
+//		}
 
 	}
 

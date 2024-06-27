@@ -396,7 +396,7 @@ select e.deptno, d.dname, floor(avg(e.sal)), max(e.sal), min(e.sal), count(*)
     
 select e.deptno, d.dname, floor(avg(e.sal)), max(e.sal), min(e.sal), count(*)
     from emp e left outer join dept d on (e.deptno = d.deptno) group by e.deptno, d.dname;
-    
+      
 -- 문제3
 select d.deptno, d.dname, e.empno, e.ename, e.job, e.sal from emp e, dept d
     where e.deptno = d.deptno order by deptno;
@@ -418,7 +418,9 @@ select d.deptno, d.dname, e1.empno, e1.ename, e1.mgr, e1.sal,
     e2.deptno, s.losal, s.hisal, s.grade, e2.empno, e2.ename from dept d
         left outer join emp e1 on (e1.deptno = d.deptno) 
         left outer join emp e2 on (e1.mgr = e2.empno)
-        left outer join salgrade s on (e1.sal >= s.losal and e1.sal <= s.hisal) order by d.deptno, e1.empno;
+        left outer join salgrade s on (e1.sal >= s.losal and e1.sal <= s.hisal) 
+            order by d.deptno, e1.empno;
+    
     
 -- 서브쿼리
 select sal from emp where ename = 'JONES';    
@@ -442,12 +444,135 @@ select * from emp where sal in (select max(sal) from emp group by deptno);
 select max(sal) from emp where deptno = 30;
 select * from emp where sal > (select max(sal) from emp where deptno = 30) order by deptno desc;
 
+-- from에 들어가는 것은 여러개 써도 상관X
+select * from emp where deptno = 10;
+select * from (select * from emp where deptno = 10);
 
+select rownum, emp.* from emp; -- 줄번호 출력   
+-- where rownum = 1; rownum은 where에서 쓰지 못한다
+-- order by ename; 가장 마지막에 실행되기 때문에 rownum 이 뒤죽박죽 됨
+
+select * from emp order by ename;
+select rownum, e.* from (select * from emp order by ename) e;
+
+select job, count(*) from emp group by job having count(*) >= 3 ;
+select * from (select job, count(*) cnt from emp group by job)
+    where cnt >= 3 ; -- count(*)라는 컬럼명이 아니라 기능이 동작하기 때문에 별칭을 붙여야 함        
+
+-- select 문이 e10이라는 별칭으로 저장이 됨 (무한루프 조심 ex.무한 댓글일 경우)
+-- select에다가 작성할 경우 결과가 한개만 출력되는 걸로 작성해야함
+with e10 as (select * from emp where deptno = 10) select ename from e10;
+
+-- 문제1
+select job from emp where ename = 'ALLEN';
+/* select job, empno, ename, sal, d.deptno, d.dname from emp, dept d 
+    where job = (select job from emp where ename = 'ALLEN') group by d.dname; */
+    
+select job, empno, ename, sal, d.deptno, d.dname from emp
+    left outer join dept d on (emp.deptno = d.deptno)
+        where job = (select job from emp where ename = 'ALLEN');
+
+-- deptno는 emp와 dept에 다 있기 때문에 별칭X
+select job, empno, ename, sal, deptno, d.dname from emp 
+    join dept d using (deptno) where job = (select job from emp where ename = 'ALLEN');    
         
+-- 문제2
+select floor(avg(sal)) from emp;
+select e.empno, e.ename, d.dname, e.hiredate, d.loc, e.sal, s.grade
+    from emp e left outer join dept d on (e.deptno = d.deptno)
+        left outer join salgrade s on (e.sal >= s.losal and e.sal <= s.hisal)
+         where e.sal > (select floor(avg(sal)) from emp) order by e.sal desc;
+         
+-- 문제3
+-- 30번 부서에 존재하는 사원중 10번 부서에 존재하는 사원만 
+-- not in -> in을 반대로 쓰는 녀석
+select job from emp where deptno = 10;
+select e.empno, e.ename, e.job, d.deptno, d.dname, d.loc from emp e
+    left outer join dept d on (e.deptno = d.deptno)
+        where job not in(select job from emp where deptno = 30) and d.deptno = 10;        
         
+-- 문제4
+select max(sal) from emp where job ='SALESMAN';
+select e.empno, e.ename, e.sal, s.grade from emp e 
+    left outer join salgrade s on (e.sal >= s.losal and e.sal <= s.hisal)
+        where sal > (select max(sal) from emp where job ='SALESMAN') order by empno;
 
 
+-- 12장 (데이터 정의어 DDL) -> 구조를 정의하는 것 create, drop, alter
+create table emp_ddl(
+    empno number(4), -- 숫자 네자리 
+    ename varchar2(10), -- 10바이트 (글씨로 3글자)
+    job varchar2(9), -- 제한보다 적은 글씨가 적히면 글씨 만큼의 공간만 차지
+    mgr number(4), -- empno가 들어와야하니까 같은 타입이들어와야함
+    hiredate date,
+    sal number(7, 2), -- 2는 소수 둘째자리점까지 기록 가능
+    comm number(7, 2),
+    deptno number(2)
+);
+
+create table dept_ddl as select * from dept; -- dept table을 복사에서 dept_ddl table을 만듬
+select * from dept_ddl;
+
+create table emp_ddl_30 as 
+    select empno, ename, sal, deptno from emp where deptno = 30; 
+select * from emp_ddl_30;
+
+create table emp_alter as select * from emp;
+select * from emp_alter;
+
+alter table emp_alter add hp varchar2(20); -- 컬럼추가
+
+alter table emp_alter rename column hp to tel; -- 컬럼명을 바꿈
+
+alter table emp_alter modify empno number(5); -- 타입을 바꿈
+desc emp_alter;
+
+-- alter table emp_alter modify empno number(4); 
+-- 크기가 커지는 것은 가능하나 줄어드는 것은 불가능
+
+-- 오라클은 지우고 되돌리는게 없음 즉, drop은 신중하게 해야함 
+-- 지우고 다시 추가해도 컬럼 내용은 null 새로운 것 
+alter table emp_alter drop column tel;
+select * from emp_alter;
+
+alter table emp_alter drop column hiredate;
+select * from emp_alter;
+
+rename emp_alter to emp_rename;
+select * from emp_rename;
+
+-- 껍데기는 살아있는데 내용물이 지워짐, 다시 되돌릴수가 없음, 신중해야함
+truncate table emp_rename; 
+
+-- 껍데기까지 지워짐, 그냥 table을 지움, 다시 되돌릴수가 없음, 신중해야함
+drop table emp_rename;
 
 
+-- 10장 (데이터 정의어 DML) -> 구조의 내용을 조작하는 것 select, update, insert, delete
+create table dept_demp as select * from dept;
 
+select * from dept_demp;
+drop table dept_demp; -- 테이블명 오타남..
 
+create table dept_temp as select * from dept;
+select * from dept_temp;
+
+insert into dept_temp (deptno, dname, loc)
+    values (50, 'DATABASE', 'SEOUL'); -- 데이터 내용 추가 (컬럼순서 맞춰서 작성)
+    
+insert into dept_temp -- table 명 뒤에 ()를 생략하면 모든 컬럼
+    values (60, 'network', 'Busan'); -- 대소문자 구분 가능
+    
+-- null 자리에 ''으로 적어버리면 java에서 null로 판단이 안됨   
+-- null 자리에 null이라고 직접 적기
+insert into dept_temp
+    values (70, 'web', null);
+    
+select * from dept_temp;
+
+insert into dept_temp(deptno, loc)
+    values (90, '인천'); -- 컬럼을 생략하면 자동으로 null이 들어감
+    
+    
+    
+    
