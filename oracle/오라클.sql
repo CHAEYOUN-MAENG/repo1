@@ -574,5 +574,237 @@ insert into dept_temp(deptno, loc)
     values (90, '인천'); -- 컬럼을 생략하면 자동으로 null이 들어감
     
     
+create table emp_temp as select * from emp;
+select * from emp_temp;    
+
+insert into emp_temp (empno, ename, hiredate)
+    values (9999, '홍길동', '2001/01/02');
+
+insert into emp_temp (empno, ename, hiredate)
+    values (1111, '성춘향', '2001/01/05'); -- 2001-01-05 -> 01/02/030
+    
+insert into emp_temp (empno, ename, hiredate)
+    values (1111, '이순신', to_date('2002-03-04', 'yyyy-mm-dd'));    
+
+insert into emp_temp (empno, ename, hiredate)
+    values (3111, '심청이', sysdate); -- sysdate는 그냥 글씨일 뿐이다, 변수 X
+
+insert into emp_temp    
+select * from emp where deptno = 10; -- deptno 10번(3개)를 emp_temp 에 추가
+select * from emp_temp order by deptno desc;    
+
+create table dept_temp2 as select * from dept; 
+select * from dept_temp2;
+
+update dept_temp2 set loc = 'seoul';
+
+rollback; -- update 했지만 틀렸다면, ddl 전까지 다시 복구 가능
+
+update dept_temp2 set loc = 'SEOUL', dname = 'DataBase'
+    where deptno = 40; -- 꼭중요
+    
+-- update하기 전 순서!!!
+-- 꼭 select 에서 where 조건이 정확한지 확인하고 update하기!
+select * from dept_temp2 where deptno = 40;
+
+create table emp_temp2 as select * from emp;
+select * from emp_temp2;
+
+select * from emp_temp2 where job = 'MANAGER';  
+delete emp_temp2 where job = 'MANAGER';    
+
+-- 문제1
+-- 급여가 1000 이하인 사원의 급여를 3% 인상해라
+select * from emp_temp2 where sal <= 1000;
+-- select ename, sal, sal*1.03 from emp_temp2 where sal <= 1000;
+update emp_temp2 set sal = sal + (sal * 0.03)
+    where sal <= 1000;
+-- update emp_temp2 set sal = sal*1.03 where sal <= 1000;    
+select * from emp_temp2;    
+select * from emp_temp2;    
+
+delete emp_temp2;
+select * from emp_temp2; -- DDL truncate와 비슷함
+
+rollback; -- update하고 commit을 안했기 때문에 위에 create로 돌아감 -> 3% 반영 안된이유
+
+-- DDL (정의어, table 구조 자체를 조작) create 만들기 alter 수정하기 drop 지우기
+-- commit이 자동으로 된다
+
+-- DML (조작어) 
+-- select, insert 자료추가(삽입), update 자료수정, delete 자료삭제 단, update와 delete는 where 주의
+-- DML은 무조건 commit을 해줘야함
+
+-- rollback, commit, 트랜잭션, 세션, Lock
+
+
+-- 문항 1.
+select rpad(substr(empno, 1,2), length(empno), '*') as empno, ename from emp order by empno desc;
+
+-- 문항 2.
+select e.empno, e.ename, d.dname, d.loc from emp e
+    left outer join dept d on (e.deptno = d.deptno) order by d.dname desc;
     
     
+-- 13장
+-- 접속 > 오라클 > 밑에 있는 정보
+select * from dict;    
+select * from user_tables;    
+
+
+-- index 색인 (데이터베이스의 속도는 idx가 영향력이 높음)
+-- 오름차순, 내림차순 따로 관리
+create index idx_emp_sal on emp(sal);
+select * from user_indexes;
+
+drop index idx_emp_sal; -- 자동커밋
+
+create index idx_emp_sal on emp(sal);
+
+-- 강제 hint 
+select /*+ index(idx_emp_sal) */ * from emp e order by sal;
+
+-- plan
+-- sql developer에서는 상단 세번째 아이콘 '계획설명'
+-- option에 full 보면 전체를 읽고 데이터를 뽑았다
+-- cost 비용이 2만큼 들어갔다 (시간과 비슷)
+
+select max(empno), max(empno)+1 from emp;
+insert into emp_temp2 (empno, ename) 
+    values ((select max(empno)+1 from emp_temp2), '신입이2');
+    
+delete from emp_temp2 where empno = '7935' and ename = '신입이2';    
+select * from emp_temp2;    
+
+
+-- sequence
+create table tb_user(user_id number, user_name varchar2(30));
+select * from tb_user;
+
+create sequence seq_user;
+
+select seq_user.nextval from dual; -- 다음꺼 볼때
+select seq_user.currval from dual; -- 지금꺼 볼때
+
+insert into tb_user (user_id, user_name) values (seq_user.nextval, '유저명1');
+insert into tb_user (user_id, user_name) values (seq_user.nextval, '유저명2');
+insert into tb_user (user_id, user_name) values (seq_user.nextval, '유저명3');
+select * from tb_user;
+
+
+
+--6월 28일 
+--index 검색 또는 조회를 빠르게 하기 위해 
+--where조건을 잘 쓰고 order by를 빠르게 잘 쓰기 위해
+--349p
+--10000으로 시작해서 100씩 증가
+create sequence seq_test 
+    start with 10000  --시작숫자 10000(기본값: 1)
+        increment by 100; --증감숫자 100(기본값: 1)
+
+--nextval을 한번도 사용하지 않은 경우 
+--currval 사용못함
+select seq_test.currval from dual; -- 지금
+select seq_test.nextval from dual; -- 다음
+
+--377p 
+--primary key, PK, 주요키, 중요키, 기본키
+--not null + unique 조건 (null이 아니면서 유일해야 함)
+--생성과 동시에 index도 생성해줌 
+--create table에서는 primary key를 딱 하나만 지정가능
+--두 개 이상의 컬럼을 primary key로 지정하려면 alter 사용  
+create table table_pk(
+    login_id varchar2(20) primary key,
+    login_pwd varchar2(20) not null,
+    tel varchar2(20)
+    );
+    
+desc table_pk;
+
+select * from user_constraints --오라클이 제공해주는 사전테이블 내가만든 것의 조건
+where table_name = 'TABLE_PK';
+--pk는 index도 자동으로 생성해줌
+select * from user_indexes;
+
+--아래처럼 하면 오류가 난다 (위에서 제약해뒀기 때문에)
+insert into table_pk (login_id,login_pwd, tel)
+values(null, null, null);
+insert into table_pk (login_id,login_pwd, tel)
+values('id', 'pw', null); 
+insert into table_pk (login_pwd, tel)
+values('pw', null); 
+
+--381p
+create table table_pk3(
+    login_id varchar2(20),
+    login_pwd varchar2(20),
+    tel varchar2(20),
+    
+    primary key(login_id, login_pwd)
+    );
+insert into table_pk3 values ('id1','pw1', null);
+insert into table_pk3 values ('id1','pw2', null);
+select * from table_pk3;
+--컬럼 2개인데 하나의 제약조건으로 잡힙 , 인덱스 as well 
+
+--384p foreign key 
+create table  dept_fk(
+    deptno1 number primary key,
+    dname varchar2(14)
+    );
+--foreign key, FK, 외래키, 참조키 
+--대상이 되는 테이블의 컬럼과 같은 타입으로 지정해야 한다 
+--deptno1를 number로 해뒀으니 아래 emp에서도 deptno를 number로 지정해줘야 함 
+--컬럼명은 서로 달라도 관계 없다(보통 같게 한다)
+--대상이 되는 컬럼은 pk여야 한다
+create table emp_fk1 (
+    empno number primary key,
+    ename varchar2(10),
+    deptno number references dept_fk(deptno1)
+    --만약 컬럼 명이 같다면 컬럼명 생략가능
+    --deptno number references dept_fk
+    );
+--아래는 foreign key 를 직접써서 하는     
+create table emp_fk2 (
+    empno number primary key,
+    ename varchar2(10),
+    deptno number,
+    
+    foreign key(deptno) references dept_fk(deptno1)
+    );
+select * from emp    
+--emp에 자료를 삽입하면 > 삽입할 수 없다 
+--왜? dept 테이블을 먼저 채워줘야 가능
+insert into dept_fk values(100,'1강의실');
+
+insert into emp_fk values(1, '이름', 101); --저쪽에 없으니까 에러
+insert into emp_fk values(1, '이름', 100);
+
+update emp_fk set deptno = 101; --오류 
+--emp_fk에서 100을 참조하고 있어서 수정, 삭제 불가
+update dept_fk set deptno1 = 101; 
+--이것도 오류남 emp_fk에서 100을 참조하고 있어서 수정, 삭제 불가
+delete dept_fk;
+
+delete emp_fk; --이렇게 삭제하고 update 해보면 
+update dept_fk set deptno1 = 101;
+--지우려면 emp 테이블부터 지워야함 
+
+--392p default
+create table table_default(
+    login_id varchar2(20),
+    login_pwd varchar2(20),
+    tel varchar2(20) default'000-0000'
+    );
+insert into table_default values ('id','pw','010-1233-4567');
+insert into table_default (login_id, login_pwd) values ('id2','pw2');
+select * from table_default;
+
+
+
+
+
+
+    
+    
+
