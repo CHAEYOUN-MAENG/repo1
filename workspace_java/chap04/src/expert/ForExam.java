@@ -226,35 +226,37 @@ public class ForExam {
 			count5++;
 		}
 		System.out.println(count5);
-		
+
 		System.out.println("----------------");
 
 		// 400만원의 원금 회수
 		// 일주일에 6만원씩
-		
+
 		// 7일 6만원
 		// 14일 12만원
 		// 21일 18만원
 		// 57일 399만원
-		
+
 		// 66일때 396만원 h =4 만족이 -> for
 		// 67일때 402만원 h = -2 불만족이 -> forX
-		int count6 =0;
-		for(int h=400; h>=0; h-=6){
-			System.out.println(h);
-			
-			for(int i=1; i<=7; i++) {
-				System.out.println(i);
+		int count6 = 0;
+		for (int h = 400; h >= 0; h -= 6) {
+			System.out.println(h); // 돈
+
+			for (int i = 1; i <= 7; i++) {
+				System.out.println(i); // 일수
 			}
 			System.out.println("6만원이 갚았습니다");
-			System.out.println((h-6)+"만원이 남았습니다");
+			System.out.println((h - 6) + "만원이 남았습니다");
 			System.out.println("----------------");
 			count6++;
-		};		
-		System.out.println(count6+"번");
-		
-		
-		
-		
+		}
+		;
+		System.out.println(count6 + "번");
+
+//		int i = 1;
+//		int result2 = i++ + 10;
+//		System.out.println(result2);
+//		System.out.println(i);
 	}
 }

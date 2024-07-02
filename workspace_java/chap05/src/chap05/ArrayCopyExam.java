@@ -66,6 +66,8 @@ public class ArrayCopyExam {
 			System.out.println(coffee4[i]);
 		}
 		
+		
+		System.out.println("------------------");
 		// 향상된 for문
 		System.out.println("향상된 for문");
 		for( String menu : coffee4) {
