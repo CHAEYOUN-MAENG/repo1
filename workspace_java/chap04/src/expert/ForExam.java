@@ -237,7 +237,7 @@ public class ForExam {
 		// 21일 18만원
 		// 57일 399만원
 
-		// 66일때 396만원 h =4 만족이 -> for
+		// 66일때 396만원 h = 4 만족이 -> for
 		// 67일때 402만원 h = -2 불만족이 -> forX
 		int count6 = 0;
 		for (int h = 400; h >= 0; h -= 6) {
@@ -258,5 +258,6 @@ public class ForExam {
 //		int result2 = i++ + 10;
 //		System.out.println(result2);
 //		System.out.println(i);
+
 	}
 }
