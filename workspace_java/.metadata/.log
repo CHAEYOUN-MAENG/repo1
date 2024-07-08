@@ -16932,3 +16932,233 @@ java.lang.IllegalArgumentException
 	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
 	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
 	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+!SESSION 2024-07-05 09:00:57.031 -----------------------------------------------
+eclipse.buildId=3.9.18.202109140905-RELEASE-e421
+java.version=11
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springsource.sts.ide
+
+!ENTRY org.eclipse.jface 2 0 2024-07-05 09:01:35.376
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-05 09:01:35.376
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@12d8e6b6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6d911985,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-07-05 09:01:58.593
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\human'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jface 2 0 2024-07-05 11:50:38.571
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-05 11:50:38.571
+!MESSAGE A conflict occurred for CTRL+R:
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.RunToLine,Run to Line,
+		Resume and break when execution reaches the current line,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1208584e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.debugging,,,system)
+Binding(CTRL+R,
+	ParameterizedCommand(Command(org.springframework.ide.eclipse.boot.restart.commands.restart,Trigger Restart,
+		Restart Spring Boot Application,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@19de1e6d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+!SESSION 2024-07-08 09:05:19.715 -----------------------------------------------
+eclipse.buildId=3.9.18.202109140905-RELEASE-e421
+java.version=11
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springsource.sts.ide
+
+!ENTRY org.eclipse.jface 2 0 2024-07-08 09:05:57.273
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-07-08 09:05:57.273
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@706c2726,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@255482cb,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-07-08 09:06:19.177
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\human'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.021
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.jst.ws.consumption.ui.doc.user_1.0.700.v201903222115 [425]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.032
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.jdt.doc.user_3.15.1200.v20210901-0815 [306]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.035
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.jst.ws.axis2.ui.doc.user_1.0.200.v201903222115 [421]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.037
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.command.env.doc.user_1.5.400.v201903222115 [623]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.040
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.jsdt.doc_2.1.0.v202101250139 [669]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.043
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.dtdeditor.doc.user_1.1.0.v201903222120 [646]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.055
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.jst.j2ee.doc.user_1.1.400.v202101072335 [359]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.063
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.platform.doc.user_4.21.0.v20210901-0815 [570]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.075
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.xmleditor.doc.user_1.1.0.v201903222120 [732]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.083
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.xsdeditor.doc.user_1.0.800.v201903222120 [735]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.085
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.jst.ejb.doc.user_1.1.301.v201903222024 [354]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.086
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.jst.ws.axis.ui.doc.user_1.1.200.v201903222115 [414]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.089
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.wsdl.ui.doc.user_1.0.850.v201903222115 [718]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.093
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.webtools.doc.user_1.0.500.v201903222120 [708]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.099
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.server.ui.doc.user_1.1.600.v201901310132 [695]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.108
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.pde.doc.user_3.14.1300.v20210901-1615 [555]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.112
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.jst.ws.doc.user_1.0.700.v201903222115 [435]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.114
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.wsi.ui.doc.user_1.0.750.v201903222115 [722]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.117
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.jst.server.ui.doc.user_1.0.600.v201901310132 [403]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 2 0 2024-07-08 11:22:06.119
+!MESSAGE Unable to consume Lucene index from bundle 'org.eclipse.wst.sse.doc.user_1.2.0.v201903222120 [698]'. The index should be rebuilt with Lucene 8.4.1
+
+!ENTRY org.eclipse.help.base 4 4 2024-07-08 11:22:11.928
+!MESSAGE Help documentation could not be indexed completely.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/refactoring/descriptors/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/manipulation/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/debug/core/jsdi/request/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/search/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/text/folding/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/debug/core/model/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/overview-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/text/java/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/debug/core/jsdi/connect/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/util/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/debug/core/jsdi/event/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/debug/rhino/debugger/shell/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/text/java/hover/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/compiler/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/compiler/libraries/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/search/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/actions/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/infer/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/jsdoc/msdn/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/dom/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/formatter/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/refactoring/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/ast/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/dom/rewrite/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/eval/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/launching/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/debug/core/jsdi/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/text/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/debug/core/breakpoints/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/debug/rhino/debugger/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/dialogs/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/project/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/ui/wizards/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/libraries/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/core/refactoring/package-summary.html cannot be opened.
+!SUBENTRY 1 org.eclipse.help.base 4 4 2024-07-08 11:22:11.929
+!MESSAGE Help document /org.eclipse.wst.jsdt.doc/reference/api/org/eclipse/wst/jsdt/jsdoc/package-summary.html cannot be opened.
