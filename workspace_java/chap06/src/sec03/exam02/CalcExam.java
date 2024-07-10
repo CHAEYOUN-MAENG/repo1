@@ -15,8 +15,13 @@ public class CalcExam {
 
 		System.out.println("----------------");
 
-		double oper = calc.oper(10, "+", 5);
-		System.out.println(oper);
+		double oper1 = calc.oper(10, "/", 4);
+		System.out.println(oper1);
+		
+		System.out.println("----------------");
+		
+		double oper2 = calc.oper(10, "+", 4);
+		System.out.println(oper2);
 	}
 
 }

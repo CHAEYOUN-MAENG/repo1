@@ -2,14 +2,14 @@ package sec03.exam01;
 
 public class Student {
 
-	Student() {
+	public Student() {
 
 	}
 
 	// 값 (ex. 이력서)
 	// 이름, 나이, 주소, 성별, 전공, 안경사용여부
-	String name;
-	int age;
+	public String name;
+	public int age;
 	String addr;
 	int gender;
 	String major;
@@ -33,7 +33,7 @@ public class Student {
 	int hp = 100; // 체력
 	int hungry = 0; // 공복감
 
-	int study(String subject) {
+	public int study(String subject) {
 		System.out.println(subject + "을(를) 공부했다");
 
 		intel += 5;

@@ -36,15 +36,15 @@ public class Calc {
 	}
 
 	double oper(double x, String msg, double y) {
-		if (msg.equals("+")) {
+		if ("+".equals(msg)) {
 			return plus(x, y);
-		} else if (msg.equals("-")) {
+		} else if ("-".equals(msg)) {
 			return minus(x, y);
-		} else if (msg.equals("*")) {
+		} else if ("*".equals(msg)) {
 			return mult(x, y);
-		} else if (msg.equals("/")) {
+		} else if ("/".equals(msg)) {
 			return divide(x, y);
-		} else if (msg.equals("%")) {
+		} else if ("%".equals(msg)) {
 			return remain(x, y);
 		} else {
 			System.out.println("다시 입력하세요");

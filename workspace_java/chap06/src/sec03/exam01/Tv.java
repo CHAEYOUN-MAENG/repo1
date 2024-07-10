@@ -1,6 +1,12 @@
 package sec03.exam01;
 
 public class Tv {
+	
+	//	전원
+	//	볼륨 up/down 0~10
+	//	>> 볼륨의 범위를 벗어나지 못하게 해주세요
+	//	채널 up/down/직접입력
+	//	정보보기 : 현재 전원상태, 볼륨, 채널 정보 출력
 
 	boolean isOn = false;
 
