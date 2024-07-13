@@ -103,5 +103,4 @@ public class Calc {
 		
 		return sum;
 	}
-
 }
