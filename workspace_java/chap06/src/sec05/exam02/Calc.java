@@ -29,8 +29,8 @@ public class Calc {
 	void test2() {
 		test1();
 	}
-	
-	// static이 있으면 클래스.메소드 
+
+	// static이 있으면 클래스.메소드
 	// 없으면 new해서 변수명 지정하고 변수.메소드
 
 }

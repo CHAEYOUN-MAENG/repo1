@@ -1,6 +1,9 @@
 package sec05.exam05;
 
 public class Array {
+	
+	// super는 생성자에서만
+	// 부모한테 올라가서 해결해야함
 
 	final int length;
 	int[] arr;

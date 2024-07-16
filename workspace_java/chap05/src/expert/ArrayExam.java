@@ -16,7 +16,4 @@ public class ArrayExam {
 
 	}
 
-	// super는 생성자에서만
-	// 부모한테 올라가서 해결해야함
-
 }
