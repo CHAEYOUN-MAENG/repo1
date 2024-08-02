@@ -2,6 +2,9 @@ package sec01.exam01;
 
 public class ThrowsTest {
 
+	// throws ClassNotFoundException 이걸 씀으로써
+	// method2를 쓰는 사용자한테 저 예외를 떠넘김
+	
 	void method2(String name) throws ClassNotFoundException {
 		Class clazz = Class.forName(name);
 	}
