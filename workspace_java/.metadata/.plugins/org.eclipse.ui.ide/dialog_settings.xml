@@ -109,6 +109,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\java\workspace_java\workspace_java\_proj2_calc_MVC"/>
 			<item value="C:\java\workspace_java\workspace_java"/>
 			<item value="D:\git_workspace\workspace_java\chap05"/>
 		</list>
@@ -129,5 +130,7 @@
 			<item key="DIALOG_Y_ORIGIN" value="162"/>
 			<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 		</section>
+	</section>
+	<section name="NewWizardAction">
 	</section>
 </section>
