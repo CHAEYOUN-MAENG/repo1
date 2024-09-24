@@ -6,17 +6,32 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="wrap"/>
 		<list key="findhistory">
-			<item value="MemberDTO"/>
+			<item value="wrap"/>
+			<item value="wrqp"/>
+			<item value="action"/>
+			<item value="mnum"/>
+			<item value="mbox"/>
+			<item value="mfont"/>
+			<item value="over"/>
+			<item value="mcontain"/>
+			<item value="mcation"/>
+			<item value="goodjob"/>
+			<item value="mcate"/>
+			<item value="pag"/>
+			<item value="page"/>
+			<item value="&lt;li&gt;&lt;a href=&quot;${pageContext.request.contextPath}작업지시서(관리자용).jsp&quot; class=&quot;category-link &quot;&gt;작업지시서 작성&lt;/a&gt;&lt;/li&gt;"/>
+			<item value="/_proj5_file"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="446"/>
-		<item key="DIALOG_Y_ORIGIN" value="167"/>
-		<item key="DIALOG_WIDTH" value="288"/>
-		<item key="DIALOG_HEIGHT" value="391"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+		<item key="DIALOG_X_ORIGIN" value="1245"/>
+		<item key="DIALOG_Y_ORIGIN" value="140"/>
+		<item key="DIALOG_WIDTH" value="340"/>
+		<item key="DIALOG_HEIGHT" value="454"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>
