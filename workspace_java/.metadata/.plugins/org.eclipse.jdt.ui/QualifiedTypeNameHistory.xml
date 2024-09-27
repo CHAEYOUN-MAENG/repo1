@@ -36,4 +36,5 @@
     <fullyQualifiedTypeName name="kr.or.human.member.dao.MemberDAOImpl"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Qualifier"/>
+    <fullyQualifiedTypeName name="lombok.ToString"/>
 </qualifiedTypeNameHistroy>
