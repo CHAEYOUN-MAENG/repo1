@@ -9,8 +9,19 @@
 	</select>
 
 	<select id="insertEmp" parameterType="empDTO">
-		INSERT INTO emp0 (empno, ename, hiredate)
+		INSERT INTO emp0(empno,ename, hiredate)
 		VALUES (#{empno}, #{ename}, #{hireDate})
 	</select>
+
+	<update id="updateEmp" parameterType="empDTO">
+		UPDATE emp0 SET ename =
+		#{ename}, hireDate = #{hireDate}
+		WHERE empno = #{empno}
+	</update>
+
+	<delete id="deleteEmp" parameterType="empDTO">
+		DELETE FROM emp0 WHERE
+		empno = #{empno}
+	</delete>
 
 </mapper>

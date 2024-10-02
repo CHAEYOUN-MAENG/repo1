@@ -6,10 +6,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import human.class1.ajax.dto.EmpDTO;
+
 @Repository
 public class EmpDAOImpl implements EmpDAO {
-	
-	// EmpDAOImpl은 EmpDAO를 상속받았기 때문에 
+
+	// EmpDAOImpl은 EmpDAO를 상속받았기 때문에
 
 	@Autowired
 	SqlSession sqlSession;
@@ -19,4 +21,11 @@ public class EmpDAOImpl implements EmpDAO {
 		List list = sqlSession.selectList("mapper.emp.selectEmp");
 		return list;
 	}
+
+	@Override
+	public int deleteEmp(EmpDTO dto) {
+		int result = sqlSession.delete("mapper.emp.deleteEmp", dto);
+		return result;
+	}
+
 }

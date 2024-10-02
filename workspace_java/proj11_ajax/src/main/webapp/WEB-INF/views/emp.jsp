@@ -60,8 +60,25 @@
 	<footer>휴먼</footer>
 
 	<script>
+	// cb : callback
+// 		function ajax(url, method, cb){
+// 			//javascript에서 false는 null, undefined, 0
+// 			// true는 false가 아닌 것
+// 			if(!method) method = "get";
+			
+// 			const xhr = new XMLHttpRequest();
+// 			xhr.open(method,url);
+// 			xhr.send();
+			
+// 			if(typeof cb == "function"){
+// 				xhr.onload = cb
+// 			}
+// 		}
+	
+// 		여기서부터 ~
+	
 		window.addEventListener("load", function() {
-			const url = "listEmp";
+			let url = "listEmp";
 			const xhr = new XMLHttpRequest();
 			xhr.open("get", url);
 			xhr.send();
@@ -72,20 +89,53 @@
 				try {
 					const empList = JSON.parse(xhr.responseText);
 						let html = "";
-					for (let i = 0; i < empList.length; i++) {
-// 						console.log(empList[i].ename)
+						for (let i = 0; i < empList.length; i++) {
+						    // 날짜 객체 생성
+						    const hiredate = new Date(empList[i].hireDate); // Date 객체 생성
+						    
+						    const y = hiredate.getFullYear(); // 연도 추출
+						    const m = hiredate.getMonth() + 1; // 월 추출 (0부터 시작하므로 +1)
+						    const d = hiredate.getDate(); // 일 추출
+
+						    html += '<tr>';
+						    html +=    '<td>' + '<input type="checkbox" name="check" value="' + empList[i].empno + '">' + '</td>';
+						    html +=    '<td>' + empList[i].empno + '</td>';
+						    html +=    '<td>' + '<a href="emp0?cmd=detail&empno=' + empList[i].empno + '">' + empList[i].ename + '</a>' + '</td>';
+						    html +=    '<td>' + empList[i].job + '</td>';
+						    html +=    '<td>' + empList[i].sal + '</td>';
+						    html +=    '<td>' + y + '년' + m + '월' + d + '월' + '</td>'
+						    html +=    `<td> <button type="button" data-empno="\${empList[i].empno}" class="btnDel" id="btn_\${empList[i].empno}"> 삭제 </button> </td>`;
+						    html += '</tr>';
+						}
 					
-						html += '<tr>';
-						html +=    '<td>' + '<input type="checkbox" name="check" value="' + empList[i].empno + '">' + '</td>';
-						html +=    '<td>' + empList[i].empno + '</td>';
-						html +=    '<td>' + '<a href="emp0?cmd=detail&empno=' + empList[i].empno + '">' + empList[i].ename + '</a>' + '</td>';
-						html +=    '<td>' + empList[i].job + '</td>';
-						html +=    '<td>' + empList[i].sal + '</td>';
-						html +=    '<td>' + empList[i].hireDate + '</td>';
-						html += '</tr>';
+					document.querySelector("#list").innerHTML = html;
+					
+// 					const delBtnList = document.querySelectorAll("[id^=btn_]")
+					const delBtnList = document.querySelectorAll(".btnDel")
+					for(let btn of delBtnList){
+						btn.addEventListener("click", ()=>{
+// 							console.log(this)
+							console.log(event.target)
+							
+							const id = event.target.getAttribute("id")
+							const empno = event.target.getAttribute("data-empno")
+							console.log("empno:" + empno)
+							
+							url = "deleteEmp"
+							const xhr2 = new XMLHttpRequest();
+							const data = {"empno" : empno}
+// 							xhr2.open("get", url);
+							
+// 							const xhr2 = new XMLHttpRequest();
+							xhr2.open("delete", url)
+							xhr2.setRequestHeader("Content-Type","application/json")
+							xhr2.send(JSON.stringify(data));
+					
+							xhr.onload = function() {
+								console.log(xhr.responseText)
+							}
+						})
 					}
-					
-					document.querySelector('#list').innerHTML = html;
 					
 				} catch (e) {
 					console.log("ERROR : url", url, e)
