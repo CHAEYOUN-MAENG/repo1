@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="wrap"/>
+		<item key="selection" value="junit"/>
 		<list key="findhistory">
+			<item value="junit"/>
 			<item value="wrap"/>
 			<item value="wrqp"/>
 			<item value="action"/>
@@ -22,7 +23,6 @@
 			<item value="pag"/>
 			<item value="page"/>
 			<item value="&lt;li&gt;&lt;a href=&quot;${pageContext.request.contextPath}작업지시서(관리자용).jsp&quot; class=&quot;category-link &quot;&gt;작업지시서 작성&lt;/a&gt;&lt;/li&gt;"/>
-			<item value="/_proj5_file"/>
 		</list>
 		<list key="replacehistory">
 		</list>

@@ -20,7 +20,6 @@
 		내용 : <input type="text" name="content"><br> 
 		첨부파일 : <input type="file" name="file1"><br> 
 				<input type="submit" value="등록">
-
 	</form>
 
 	<hr>
