@@ -20,9 +20,50 @@ public class EmpDAOImpl implements EmpDAO {
 		return result;
 	}
 
-	@Override
-	public void insertEmp(EmpDTO empDTO) {
-		// MyBatis를 통해 EmpDTO 데이터를 삽입하는 로직
-		sqlSession.insert("mapper.emp.insertEmp", empDTO);
+	public int insertEmp(EmpDTO empDTO) {
+		int result = -1;
+
+		try {
+			result = sqlSession.insert("mapper.emp.insertEmp", empDTO);
+		} catch (Exception e) {
+			sqlSession.rollback();
+		}
+
+		return result;
+	}
+
+	public EmpDTO selectEmpOne(int empno) {
+		EmpDTO empDTO = null;
+		try {
+			empDTO = sqlSession.selectOne("mapper.emp.selectEmpOne", empno);
+		} catch (Exception e) {
+			sqlSession.rollback();
+		}
+
+		return empDTO;
+	}
+
+	public int updateEmp(EmpDTO empDTO) {
+		int result = -1;
+
+		try {
+			result = sqlSession.insert("mapper.emp.updateEmp", empDTO);
+		} catch (Exception e) {
+			sqlSession.rollback();
+		}
+
+		return result;
+	}
+
+	public int deleteEmp(EmpDTO empDTO) {
+		int result = -1;
+
+		try {
+			result = sqlSession.insert("mapper.emp.deleteEmp", empDTO);
+		} catch (Exception e) {
+			sqlSession.rollback();
+		}
+
+		return result;
 	}
 }

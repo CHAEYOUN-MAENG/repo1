@@ -10,7 +10,9 @@ import kr.or.human.emp.dto.EmpDTO;
 public interface EmpDAO {
 
 	List<EmpDTO> selectEmp();
-
-	void insertEmp(EmpDTO empDTO);
-
+	public int insertEmp(EmpDTO empDTO);
+	EmpDTO selectEmpOne(int empno);
+	int updateEmp(EmpDTO empDTO);
+	public int deleteEmp(EmpDTO empDTO);
+	
 }
