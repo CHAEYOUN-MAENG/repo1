@@ -41,6 +41,7 @@
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="human.class1.ajax.dao.EmpDAOImpl"/>
     <fullyQualifiedTypeName name="human.class1.ajax.dto.EmpDTO"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
     <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
+    <fullyQualifiedTypeName name="kr.co.mandoo.dto.OrderInfoDTO"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
 </qualifiedTypeNameHistroy>

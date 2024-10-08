@@ -14,7 +14,7 @@ import human.class1.ajax.dto.EmpDTO;
 import human.class1.ajax.service.EmpService;
 
 @Controller
-public class Empcontroller {
+public class EmpController {
 
 	@Autowired
 	EmpService empService;

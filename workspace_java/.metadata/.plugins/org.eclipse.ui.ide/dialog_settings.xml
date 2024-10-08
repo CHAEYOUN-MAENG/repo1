@@ -109,6 +109,8 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Owner\Desktop\cute3\mandoo_spring_3"/>
+			<item value="C:\java\workspace_java\workspace_java\mandoo_proj"/>
 			<item value="C:\java\workspace_java\workspace_java\proj8_Spring_MyBatis"/>
 			<item value="C:\java\workspace_java\workspace_java\_proj6_myBatis"/>
 			<item value="C:\Users\Owner\Desktop\cute2차\cute2\mandoo_proj"/>
